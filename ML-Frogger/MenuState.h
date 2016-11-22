@@ -5,7 +5,7 @@
 
 @section LICENSE
 
-This software is based on the material accompanying the book "SFML Game Development" see License.txt
+This software is based on the frogger game for my project at NBCC Moncton programing course
 
 Additions and modifications are my sole work for prog 1266
 
@@ -32,9 +32,7 @@ namespace GEX
 		virtual void            draw();
 		virtual bool            update(sf::Time dt);
 		virtual bool            handleEvent(const sf::Event& event);
-
 		void                    updateOptionText();
-
 
 	private:
 		enum OptionNames
@@ -42,7 +40,6 @@ namespace GEX
 			Play,
 			Exit,
 		};
-
 
 	private:
 		sf::Sprite              _backgroundSprite;
