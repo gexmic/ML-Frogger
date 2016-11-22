@@ -37,7 +37,7 @@ namespace GEX
 		_sceneGraph(),
 		_sceneLayers(),
 		_commandQueue(),
-		_worldBounds(0.f, 0.f, _worldView.getSize().x, 2000.f),
+		_worldBounds(0.f, 0.f, _worldView.getSize().x, 600),
 		_spawnPosition(_worldView.getSize().x / 2,
 		_worldBounds.height - (_worldView.getSize().y / 2.f))
 	
@@ -93,7 +93,7 @@ namespace GEX
 
 	void World::adapPlayerPosition()
 	{
-		sf::FloatRect viewBounds(_worldView.getCenter() - _worldView.getSize() / 2.f, _worldView.getSize());
+		/*sf::FloatRect viewBounds(_worldView.getCenter() - _worldView.getSize() / 2.f, _worldView.getSize());
 		const float borderDistance = 25.f;
 
 		sf::Vector2f position = _playerFrog->getPosition();
@@ -101,7 +101,7 @@ namespace GEX
 		position.x = std::min(position.x, viewBounds.left + viewBounds.width - borderDistance);
 		position.y = std::max(position.y, viewBounds.top + borderDistance);
 		position.y = std::min(position.y, viewBounds.top + viewBounds.height - borderDistance);
-		_playerFrog->setPosition(position);
+		_playerFrog->setPosition(position);*/
 	}
 
 	CommandeQueue & World::getCommandQueue()
@@ -112,7 +112,8 @@ namespace GEX
 	bool World::hasAlivePlayer()
 	{	// find the bug
 		
-		return !_playerFrog->isMarkedForRemoval();
+		/*return !_playerFrog->isMarkedForRemoval();*/
+		return true;
 	}
 
 	
@@ -126,17 +127,15 @@ namespace GEX
 			_sceneLayers[i] = layer.get();
 			_sceneGraph.attachChild(std::move(layer));
 		}
-
 		
 
 		//prepare tiled background
 		sf::Texture& texture = TextureHolder::getInstance().get(TextureID::Background);
 		sf::IntRect textureRect(0, 0, 480, 600);
-		texture.setRepeated(true);
 
 		//add background to sceneGraph
 		std::unique_ptr<SpriteNode> background(new SpriteNode(texture, textureRect));
-		//background->setPosition(_worldBounds.left, _worldBounds.top - 2000.f);
+		background->setPosition(_worldBounds.left, _worldBounds.top );
 		_sceneLayers[Backgroud]->attachChild(std::move(background));		
 	
 	}
