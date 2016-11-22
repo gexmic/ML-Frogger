@@ -5,13 +5,14 @@
 
 @section LICENSE
 
-This software is based on the material accompanying the book "SFML Game Development" see License.txt
+This software is based on the frogger game for my project at NBCC Moncton programing course
 
 Additions and modifications are my sole work for prog 1266
 
 @section DESCRIPTION
 
-Application class
+Application class will run the game loop and load the materia that is required in the
+begining of the game.
 
 */
 
@@ -26,7 +27,7 @@ Application class
 #include "PauseState.h"
 #include "FontHolder.h"
 #include "TitleState.h"
-#include "GexState.h"
+
 #include "GameOver.h"
 
 
@@ -36,23 +37,17 @@ namespace GEX
 	const sf::Time Application::TimePerFrame = sf::seconds(1.f / 60.f);
 
 	Application::Application() :
-		_window(sf::VideoMode(1024, 768), "States", sf::Style::Close),
+		_window(sf::VideoMode(480, 600), "States", sf::Style::Close),
 		_player(),
-		_stateStack(State::Context(_window, _player, _music, _soundPlayer)),
+		_stateStack(State::Context(_window, _player, _music /*_soundPlayer*/)),
 		_statsText()
 	{
 		_window.setKeyRepeatEnabled(false);
 
 		FontHolder::getInstance().load(FontID::Main,				"../Media/Sansation.ttf");
-		TextureHolder::getInstance().load(TextureID::TitleScreen,	"../Media/Textures/MenuScreen.png");
-		TextureHolder::getInstance().load(TextureID::MenuScreen,	"../Media/Textures/TitleScreen.png");
-		TextureHolder::getInstance().load(TextureID::GexScreen,     "../Media/Textures/face.png");
-		TextureHolder::getInstance().load(TextureID::Desert,		"../Media/Textures/Desert.png");
-		TextureHolder::getInstance().load(TextureID::Entity,        "../Media/Textures/Entities.png");
-		TextureHolder::getInstance().load(TextureID::Particale,     "../Media/Textures/Particle.png");
-		TextureHolder::getInstance().load(TextureID::Explosion,     "../Media/Textures/Explosion.png");
-		TextureHolder::getInstance().load(TextureID::FinishLine,    "../Media/Textures/FinishLine.png");
-		TextureHolder::getInstance().load(TextureID::Jungle,        "../Media/Textures/Jungle.png");
+		TextureHolder::getInstance().load(TextureID::TitleScreen,	"../Media/Textures/FroggerTitle.png");
+		TextureHolder::getInstance().load(TextureID::MenuScreen,	"../Media/Textures/FroggerTitle.png");
+		TextureHolder::getInstance().load(TextureID::Background,     "../Media/Textures/background.png");
 		
 
 		_statsText.setFont(FontHolder::getInstance().get(FontID::Main));
@@ -141,11 +136,7 @@ namespace GEX
 		_stateStack.registerState<TitleState>			(StateID::Title);
 		_stateStack.registerState<MenuState>			(StateID::Menu);
 		_stateStack.registerState<GameState>			(StateID::Game);
-		_stateStack.registerState<PauseState>			(StateID::Pause);
-		_stateStack.registerState<GexState>				(StateID::Gex);
-		_stateStack.registerState<GameOverState>		(StateID::GameOver);
 	}
-
 
 
 

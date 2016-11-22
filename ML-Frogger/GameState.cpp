@@ -23,10 +23,10 @@ namespace GEX
 
 	GameState::GameState(StateStack & stack, Context context) :
 		State(stack, context),
-		_world(*context.window, *context.soundEffects),
+		_world(*context.window/*, *context.soundEffects*/),
 		_player(*context.player)
 	{
-		context.music->play(MusicID::MissionTheme);
+		//context.music->play(MusicID::MissionTheme);
 	}
 
 	void GameState::draw()
@@ -44,11 +44,7 @@ namespace GEX
 			_player.setMissionStatus(MissionStatus::Fail);
 			requestStackPush(StateID::GameOver);
 		}
-		else if (_world.hasReachedFinich())
-		{
-			_player.setMissionStatus(MissionStatus::Success);
-			requestStackPush(StateID::GameOver);
-		}
+		
 		// ///////////////////////////
 		CommandeQueue& commands = _world.getCommandQueue();
 		_player.handleRealTimeInput(commands);

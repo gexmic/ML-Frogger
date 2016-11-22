@@ -26,11 +26,11 @@ namespace GEX
 {
 
 	State::Context::Context(sf::RenderWindow& window, PlayerControl& player,
-							MusicPlayer& music, SoundPlayer& soundEffects) :
+							MusicPlayer& music /*SoundPlayer& soundEffects*/) :
 		window(&window),
 		player(&player),
-		music(&music),
-		soundEffects(&soundEffects)
+		music(&music)
+		//soundEffects(&soundEffects)
 	{}
 
 

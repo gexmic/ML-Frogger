@@ -16,18 +16,18 @@ Player control class
 */
 
 #include "PlayerControl.h"
-#include "Airplaine.h"
 #include "Category.h"
+#include "Frog.h"
 
 namespace GEX
 {
-	struct AircraftMover
+	struct FrogMover
 	{
-		AircraftMover(float vx, float vy) : velocity(vx, vy)
+		FrogMover(float vx, float vy) : velocity(vx, vy)
 		{}
-		void operator() (Airplaine& aircraft, sf::Time dt) const
+		void operator() (Frog& frog, sf::Time dt) const
 		{
-			aircraft.accelerate(velocity);
+			//frog.accelerate(velocity);
 		}
 		sf::Vector2f velocity;
 	};
@@ -75,12 +75,10 @@ namespace GEX
 	{
 		const float playerSpeed = 200.f;
 
-		_actionBindings[Action::MoveLeft].action		= derivedAction<Airplaine>(AircraftMover(-playerSpeed, 0.f));
-		_actionBindings[Action::MoveRight].action		= derivedAction<Airplaine>(AircraftMover(playerSpeed, 0.f));
-		_actionBindings[Action::MoveUp].action			= derivedAction<Airplaine>(AircraftMover(0.f, -playerSpeed));
-		_actionBindings[Action::MoveDown].action		= derivedAction<Airplaine>(AircraftMover(0.f, playerSpeed));
-		_actionBindings[Action::FireBullet].action		= derivedAction<Airplaine>([](Airplaine& a, sf::Time& dt) {a.fire();});
-		_actionBindings[Action::launchMissile].action	= derivedAction<Airplaine>([](Airplaine& a, sf::Time& dt) {a.launchMissile();});
+		_actionBindings[Action::MoveLeft].action		= derivedAction<Frog>(FrogMover(-playerSpeed, 0.f));
+		_actionBindings[Action::MoveRight].action		= derivedAction<Frog>(FrogMover(playerSpeed, 0.f));
+		_actionBindings[Action::MoveUp].action			= derivedAction<Frog>(FrogMover(0.f, -playerSpeed));
+		_actionBindings[Action::MoveDown].action		= derivedAction<Frog>(FrogMover(0.f, playerSpeed));
 
 
 		for (auto& pair : _actionBindings)

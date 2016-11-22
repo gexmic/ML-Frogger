@@ -18,11 +18,7 @@ this dataTable class have a table for the airplaine attributes wen a airplaine i
 #pragma once
 #include "ResourceIdentifiers.h"
 #include <map>
-#include "Airplaine.h"
 #include <vector>
-#include "Projectile.h"
-#include "Pickup.h"
-#include "Particule.h"
 
 namespace GEX
 {
@@ -34,44 +30,6 @@ namespace GEX
 		float		angle;
 		float		distance;
 
-	};
-
-	struct AirplainDate
-	{
-		int						hitpoint;
-		float					speed;
-		TextureID				texture;
-		sf::IntRect				location;
-		sf::Time				fireInterval;
-		std::vector<Direction>  direction;
-	};
-
-	struct ProjectileDate
-	{
-		int						damege;
-		float					speed;
-		float					approachRate; ///< for guided projectile how fast ther turn
-		TextureID				texture;
-		sf::IntRect				location;
-
-	};
-
-	struct PickupDate
-	{
-		std::function<void(Airplaine&)>		action;
-		TextureID							texture;
-		sf::IntRect				            location;
-	};
-
-	struct ParticuleData
-	{
-		sf::Color							color;
-		sf::Time							lifetime;
-	};
-
-	std::map<Airplaine::Type, AirplainDate>			initializeAircraftDate();
-	std::map<Projectile::Type, ProjectileDate>		initializeProjectileDate();
-	std::map<Pickup::Type, PickupDate>				initializePickupDate();
-	std::map<Particule::Type, ParticuleData>        initializeParticleData();
+	};	
 
 }

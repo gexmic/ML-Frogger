@@ -115,25 +115,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Airplaine.cpp" />
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="CommandeQueue.cpp" />
     <ClCompile Include="DataTables.cpp" />
-    <ClCompile Include="EmmitterNode.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="FontHolder.cpp" />
+    <ClCompile Include="Frog.cpp" />
     <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="GameState.cpp" />
-    <ClCompile Include="GexState.cpp" />
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="MusicPlayer.cpp" />
-    <ClCompile Include="ParticuleNode.cpp" />
     <ClCompile Include="PauseState.cpp" />
-    <ClCompile Include="Pickup.cpp" />
     <ClCompile Include="PlayerControl.cpp" />
-    <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="SceneNode.cpp" />
     <ClCompile Include="SoundBufferHolder.cpp" />
     <ClCompile Include="SoundNode.cpp" />
@@ -149,27 +144,21 @@
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Airplaine.h" />
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="Category.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandeQueue.h" />
     <ClInclude Include="DataTables.h" />
-    <ClInclude Include="EmmitterNode.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="FontHolder.h" />
+    <ClInclude Include="Frog.h" />
     <ClInclude Include="GameOver.h" />
     <ClInclude Include="GameState.h" />
-    <ClInclude Include="GexState.h" />
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="MusicPlayer.h" />
-    <ClInclude Include="Particule.h" />
-    <ClInclude Include="ParticuleNode.h" />
     <ClInclude Include="PauseState.h" />
-    <ClInclude Include="Pickup.h" />
     <ClInclude Include="PlayerControl.h" />
-    <ClInclude Include="Projectile.h" />
     <ClInclude Include="ResourceIdentifiers.h" />
     <ClInclude Include="SceneNode.h" />
     <ClInclude Include="SoundBufferHolder.h" />

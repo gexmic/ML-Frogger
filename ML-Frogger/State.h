@@ -25,12 +25,12 @@ namespace GEX
 		struct Context
 		{
 			Context(sf::RenderWindow& window, PlayerControl& player,
-				MusicPlayer& music, SoundPlayer& soundEffect);
+				MusicPlayer& music /*SoundPlayer& soundEffect*/);
 
 			sf::RenderWindow*   window;
 			PlayerControl*      player;
 			MusicPlayer*		music;
-			SoundPlayer*		soundEffects;
+			//SoundPlayer*		soundEffects;
 		};
 
 

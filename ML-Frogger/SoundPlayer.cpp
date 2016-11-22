@@ -43,13 +43,13 @@ namespace GEX
 
 	SoundPlayer::SoundPlayer()
 	{
-		SoundBufferHolder::getInstance().load(SoundEffectID::AlliedGunFire,	"../Media/Sound/AlliedGunfire.wav");
+		/*SoundBufferHolder::getInstance().load(SoundEffectID::AlliedGunFire,	"../Media/Sound/AlliedGunfire.wav");
 		SoundBufferHolder::getInstance().load(SoundEffectID::EnemyGunFire,	"../Media/Sound/EnemyGunfire.wav");
 		SoundBufferHolder::getInstance().load(SoundEffectID::Explosion1,	"../Media/Sound/Explosion1.wav");
 		SoundBufferHolder::getInstance().load(SoundEffectID::Explosion2,	"../Media/Sound/Explosion2.wav");
 		SoundBufferHolder::getInstance().load(SoundEffectID::LauchMissile,	"../Media/Sound/LaunchMissile.wav");
 		SoundBufferHolder::getInstance().load(SoundEffectID::CollectPickup,	"../Media/Sound/CollectPickup.wav");
-		SoundBufferHolder::getInstance().load(SoundEffectID::Botton,		"../Media/Sound/Button.wav");
+		SoundBufferHolder::getInstance().load(SoundEffectID::Botton,		"../Media/Sound/Button.wav");*/
 
 		// Listener points towards the screen (default in SFML)
 		sf::Listener::setDirection(0.f, 0.f, -1.f);

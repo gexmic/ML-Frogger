@@ -20,26 +20,10 @@ This is a enum for all the resource the game have, plane, backgoud, button.
 namespace GEX
 {
 	enum class TextureID
-	{
-		Desert,
-		Airplane,
-		Missile,
+	{		
 		TitleScreen,
 		MenuScreen,
-		GexScreen,
-		ButtonNormal,
-		ButtonSelected,
-		ButtonPressed,
-		Bullet,	
-		HealthRefill,
-		MissileRefill,
-		FireSpread,
-		FireRate,
-		Particale,
-		Entity,
-		Explosion,
-		FinishLine,
-		Jungle
+		Background
 	};
 
 	enum class FontID

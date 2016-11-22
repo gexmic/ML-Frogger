@@ -5,13 +5,14 @@
 
 @section LICENSE
 
-This software is based on the material accompanying the book "SFML Game Development" see License.txt
+This software is based on the frogger game for my project at NBCC Moncton programing course
 
 Additions and modifications are my sole work for prog 1266
 
 @section DESCRIPTION
 
-This is the application class. This class manage the game loop.
+Application class will run the game loop and load the materia that is required in the 
+begining of the game.
 
 */
 

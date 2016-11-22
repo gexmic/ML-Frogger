@@ -24,9 +24,9 @@ tthis world class is the world of the game. It will draw the backgound the airpl
 #include <array>
 #include "CommandeQueue.h"
 #include <vector>
-#include "Airplaine.h"
 #include "CommandeQueue.h"
 #include "SoundPlayer.h"
+#include "Frog.h"
 
 
 
@@ -38,14 +38,14 @@ namespace GEX
 	private:
 		struct SpawnPoint
 		{
-			SpawnPoint(Airplaine::Type type, float _x, float _y) :
+			/*SpawnPoint(Airplaine::Type type, float _x, float _y) :
 				type(type),
 				x(_x),
 				y(_y)
 			{}
 			Airplaine::Type					type;
 			float							x;
-			float							y;
+			float							y;*/
 		};
 
 	public:
@@ -54,15 +54,14 @@ namespace GEX
 		World&								operator=(const World&) = delete;
 
 		/// constructor						
-		explicit							World(sf::RenderWindow& target, SoundPlayer& soundPlayer);
+		explicit							World(sf::RenderWindow& target/*, SoundPlayer& soundPlayer*/);
 
 		void								update(sf::Time deltaTime);
-		void								guidMissiles();
+		
 		void								draw();
 		void								adapPlayerPosition();
 		CommandeQueue&						getCommandQueue();
 		bool								hasAlivePlayer();
-		bool								hasReachedFinich() const;
 
 
 	private:
@@ -70,10 +69,7 @@ namespace GEX
 
 		sf::FloatRect						getViewBounds() const;
 		sf::FloatRect						getBattleFieldBound() const;
-		void								spawnEnemies();
-		void								addEnemies();
-		void								addEnemy(Airplaine::Type type, float relx, float rely);
-		void								addEnemy(SpawnPoint spoint);
+		
 		void								handleCollisions();
 		void								destroyEntitieOurSideView();
 		void								updateSound();
@@ -83,8 +79,7 @@ namespace GEX
 		enum Layer
 		{
 			Backgroud,
-			Air,
-			FinishLine,
+			Air,			
 			LayerCount
 		};
 
@@ -94,15 +89,12 @@ namespace GEX
 		SceneNode								_sceneGraph;
 		std::array<SceneNode*, LayerCount>		_sceneLayers;
 		CommandeQueue							_commandQueue;
-		SoundPlayer&							_soundPlayer;
+		//SoundPlayer&							_soundPlayer;
 
 		sf::FloatRect							_worldBounds;
 		sf::Vector2f							_spawnPosition;
-		sf::Vector2f							_finishline;
-		float									_scrollSpeed;
-		Airplaine*								_playerAircraft;
-		std::vector<SpawnPoint>					_enemiSpanPoint;
-		std::vector<Airplaine*>					_activeEnemies;
+		Frog*									_playerFrog;
+		
 	};
 }
 
