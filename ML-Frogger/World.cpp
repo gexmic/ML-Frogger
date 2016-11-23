@@ -22,6 +22,7 @@ world class
 #include <math.h>
 #include "ResourceIdentifiers.h"
 #include <algorithm>
+#include <iostream>
 
 #include "SoundPlayer.h"
 #include "SoundNode.h"
@@ -38,20 +39,20 @@ namespace GEX
 		_sceneLayers(),
 		_commandQueue(),
 		_worldBounds(0.f, 0.f, _worldView.getSize().x, 600),
-		_spawnPosition(_worldView.getSize().x / 2,
-		_worldBounds.height - (_worldView.getSize().y / 2.f))
+		_spawnPosition(_worldView.getSize().x / 2, _worldView.getSize().y - 20)
 	
 		
 	{
 		buildScene();
 		
 		// start the view at the bottom of the world
-		_worldView.setCenter(_spawnPosition);
+		//_worldView.setCenter(_spawnPosition);
 	}
 
 	void World::update(sf::Time deltaTime)
 	{
 		
+		std::cout << _playerFrog->getPosition().x << "  " << _playerFrog->getPosition().y << std::endl;
 		//_playerAircraft->setVelocity(0.f, 0.f);
 
 		updateSound();
@@ -137,6 +138,11 @@ namespace GEX
 		std::unique_ptr<SpriteNode> background(new SpriteNode(texture, textureRect));
 		background->setPosition(_worldBounds.left, _worldBounds.top );
 		_sceneLayers[Backgroud]->attachChild(std::move(background));		
+
+		std::unique_ptr<Frog> frog(new Frog());
+		_playerFrog = frog.get();
+		_playerFrog->setPosition(_spawnPosition);
+		_sceneLayers[Air]->attachChild(std::move(frog));
 	
 	}
 

@@ -47,7 +47,8 @@ namespace GEX
 		FontHolder::getInstance().load(FontID::Main,				"../Media/Sansation.ttf");
 		TextureHolder::getInstance().load(TextureID::TitleScreen,	"../Media/Textures/FroggerTitle.png");
 		TextureHolder::getInstance().load(TextureID::MenuScreen,	"../Media/Textures/FroggerTitle.png");
-		TextureHolder::getInstance().load(TextureID::Background,     "../Media/Textures/background.png");
+		TextureHolder::getInstance().load(TextureID::Background,    "../Media/Textures/background.png");
+		TextureHolder::getInstance().load(TextureID::FroggerAtlas,        "../Media/Textures/FroggerAtlas.png");
 		
 
 		_statsText.setFont(FontHolder::getInstance().get(FontID::Main));

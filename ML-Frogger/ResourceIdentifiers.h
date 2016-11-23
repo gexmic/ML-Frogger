@@ -23,7 +23,8 @@ namespace GEX
 	{		
 		TitleScreen,
 		MenuScreen,
-		Background
+		Background,
+		FroggerAtlas
 	};
 
 	enum class FontID
