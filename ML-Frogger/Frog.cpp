@@ -10,8 +10,7 @@ namespace GEX
 		_liveLocation(6, 1, 18,21),
 		_sprite(TextureHolder::getInstance().get(TextureID::FroggerAtlas)),
 		_livesSprite(TextureHolder::getInstance().get(TextureID::FroggerAtlas)),
-		_lives(5)
-		
+		_lives(5)		
 	{		
 		_sprite.setTextureRect(_frogLocation);
 		centerOrigin(_sprite);
@@ -20,11 +19,7 @@ namespace GEX
 		centerOrigin(_livesSprite);
 
 	}
-
-	int Frog::getNumberOfLives()
-	{
-		return _lives;
-	}
+	
 
 	/*for (int = 0; i < live : ++i)
 	{
@@ -34,18 +29,17 @@ namespace GEX
 
 	void Frog::drawCurrent(sf::RenderTarget & target, sf::RenderStates state) const
 	{
-		target.draw(_sprite, state);	}
-
-	void drawLive()
-	{
-
-	}
+		target.draw(_sprite, state);
+		for (int i = 0; i < _lives; ++i)
+		{
+			sf::Vector2f tmp(460.f - i * 20.f, 20.f);
+			_livesSprite.setPosition(tmp);
+			target.draw(_livesSprite);
+		}
+	}	
 
 	void Frog::updateCurrent(sf::Time dt, CommandeQueue & commands)
 	{
 		Entity::updateCurrent(dt, commands);
-	}
-
-
-	
+	}	
 }
