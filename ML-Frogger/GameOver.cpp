@@ -36,12 +36,12 @@ namespace GEX
 		sf::Vector2f windowSize = context.window->getView().getSize();
 
 		_gameOverText.setFont(font);
-		if (context.player->getMissionStatus() == MissionStatus::Fail)
+		/*if (context.player->getMissionStatus() == MissionStatus::Fail)
 		{
 			_gameOverText.setString("Mission Failed!");
 		}
 		else
-			_gameOverText.setString("Mission Successfull");
+			_gameOverText.setString("Mission Successfull");*/
 		
 		_gameOverText.setCharacterSize(100);
 		centerOrigin(_gameOverText);

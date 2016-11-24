@@ -27,13 +27,13 @@ namespace GEX
 		{}
 		void operator() (Frog& frog, sf::Time dt) const
 		{
-			//frog.accelerate(velocity);
+			sf::Vector2f tmp = frog.getPosition();
+			frog.setPosition(tmp.x + velocity.x, tmp.y + velocity.y);
 		}
 		sf::Vector2f velocity;
 	};
 
-	PlayerControl::PlayerControl() :
-		_missionStatus(MissionStatus::Active)
+	PlayerControl::PlayerControl() 
 	{
 		initializaKeyBindings();
 		initializaActionBindings();
@@ -67,18 +67,17 @@ namespace GEX
 		_keyBindings[sf::Keyboard::Right]	= Action::MoveRight;
 		_keyBindings[sf::Keyboard::Up]		= Action::MoveUp;
 		_keyBindings[sf::Keyboard::Down]	= Action::MoveDown;
-		_keyBindings[sf::Keyboard::Space]	= Action::FireBullet;
-		_keyBindings[sf::Keyboard::M]		= Action::launchMissile;
 	}
 
 	void PlayerControl::initializaActionBindings()
 	{
 		const float playerSpeed = 200.f;
 
-		_actionBindings[Action::MoveLeft].action		= derivedAction<Frog>(FrogMover(-playerSpeed, 0.f));
-		_actionBindings[Action::MoveRight].action		= derivedAction<Frog>(FrogMover(playerSpeed, 0.f));
-		_actionBindings[Action::MoveUp].action			= derivedAction<Frog>(FrogMover(0.f, -playerSpeed));
-		_actionBindings[Action::MoveDown].action		= derivedAction<Frog>(FrogMover(0.f, playerSpeed));
+
+		_actionBindings[Action::MoveLeft].action		= derivedAction<Frog>(FrogMover(-40, 0.f));
+		_actionBindings[Action::MoveRight].action		= derivedAction<Frog>(FrogMover(40, 0.f));
+		_actionBindings[Action::MoveUp].action			= derivedAction<Frog>(FrogMover(0.f, -40));
+		_actionBindings[Action::MoveDown].action		= derivedAction<Frog>(FrogMover(0.f, 40));
 
 
 		for (auto& pair : _actionBindings)
@@ -102,14 +101,7 @@ namespace GEX
 			return false;
 		}
 	}
-	void PlayerControl::setMissionStatus(MissionStatus status)
-	{
-		_missionStatus = status;
-	}
-	MissionStatus PlayerControl::getMissionStatus() const
-	{
-		return _missionStatus;
-	}
+	
 }
 
 

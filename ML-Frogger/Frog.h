@@ -9,6 +9,7 @@ namespace GEX
 		Frog();
 		int getNumberOfLives();
 
+
 	private:
 		void				drawCurrent(sf::RenderTarget& target, sf::RenderStates state) const override;
 		virtual void        updateCurrent(sf::Time dt, CommandeQueue& commands) override;
