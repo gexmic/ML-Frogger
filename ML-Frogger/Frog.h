@@ -1,11 +1,13 @@
 #pragma once
 #include "Entity.h"
+#include <vector>
 namespace GEX
 {
 	class Frog : public Entity
 	{
 	public:
 		Frog();
+		int getNumberOfLives();
 
 	private:
 		void				drawCurrent(sf::RenderTarget& target, sf::RenderStates state) const override;
@@ -13,8 +15,11 @@ namespace GEX
 
 	private:
 		sf::Sprite			_sprite;
-		sf::IntRect			_location;
-
+		sf::Sprite			_livesSprite;
+		sf::IntRect			_frogLocation;
+		sf::IntRect			_liveLocation;
+		int					_lives;
+		
 	};
 }
 

@@ -62,6 +62,7 @@ namespace GEX
 		void								adapPlayerPosition();
 		CommandeQueue&						getCommandQueue();
 		bool								hasAlivePlayer();
+		void								displayNumberOfLives();
 
 
 	private:
@@ -94,6 +95,9 @@ namespace GEX
 		sf::FloatRect							_worldBounds;
 		sf::Vector2f							_spawnPosition;
 		Frog*									_playerFrog;
+		sf::Sprite								_numOfLives;
+		sf::IntRect								_livePosition;
+
 		
 	};
 }
