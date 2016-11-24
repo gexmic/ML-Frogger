@@ -96,7 +96,7 @@ namespace GEX
 		case Action::MoveRight:
 		case Action::MoveUp:
 		case Action::MoveDown:
-			return true;
+			return false;
 		default:
 			return false;
 		}
