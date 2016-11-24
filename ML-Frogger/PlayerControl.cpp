@@ -82,7 +82,7 @@ namespace GEX
 
 		for (auto& pair : _actionBindings)
 		{
-			pair.second.category = Category::PlayerAircraft;
+			pair.second.category = Category::Frog;
 		}
 	
 	}

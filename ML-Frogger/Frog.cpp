@@ -19,13 +19,11 @@ namespace GEX
 		centerOrigin(_livesSprite);
 
 	}
-	
 
-	/*for (int = 0; i < live : ++i)
+	unsigned int Frog::getCategory() const
 	{
-		_liveSprite->setposition(460 - (i * 20), 20);
-		_window.draw(_liveSprite);
-	}*/
+		return Category::Frog;
+	}
 
 	void Frog::drawCurrent(sf::RenderTarget & target, sf::RenderStates state) const
 	{

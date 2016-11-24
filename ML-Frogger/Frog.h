@@ -7,6 +7,7 @@ namespace GEX
 	{
 	public:
 		Frog();
+		unsigned int		getCategory() const override;
 
 	private:
 		void				drawCurrent(sf::RenderTarget& target, sf::RenderStates state) const override;
