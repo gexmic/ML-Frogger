@@ -21,6 +21,7 @@ have the control for bullet and missel.
 #include "CommandeQueue.h"
 #include "Command.h"
 #include <map>
+#include "Animation2.h"
 
 namespace GEX
 {
@@ -30,9 +31,7 @@ namespace GEX
 		MoveRight,
 		MoveUp,
 		MoveDown,
-	};
-
-	
+	};	
 
 	class PlayerControl
 	{
@@ -50,6 +49,7 @@ namespace GEX
 	private:
 		std::map<sf::Keyboard::Key, Action>		_keyBindings;
 		std::map<Action, Command>				_actionBindings;
+		
 	};
 
 }

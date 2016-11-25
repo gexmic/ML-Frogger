@@ -55,11 +55,11 @@ namespace GEX
 		sf::FloatRect bounds = text.getLocalBounds();
 		text.setOrigin(std::floor(bounds.left + bounds.width / 2.f), std::floor(bounds.top + bounds.height / 2.f));
 	}
-	void centerOrigin(Animation & animation)
+	/*void centerOrigin(Animation2 & animation)
 	{
 		sf::FloatRect bounds = animation.getLocalBounds();
 		animation.setOrigin(std::floor(bounds.left + bounds.width / 2.f), std::floor(bounds.top + bounds.height / 2.f));
-	}
+	}*/
 	float lenght(sf::Vector2f vector)
 	{
 		return sqrt(vector.x * vector.x + vector.y * vector.y);

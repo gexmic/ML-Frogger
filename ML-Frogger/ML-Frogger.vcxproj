@@ -115,7 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="Animation2.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="CommandeQueue.cpp" />
@@ -125,6 +125,7 @@
     <ClCompile Include="Frog.cpp" />
     <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="JsonFrameParser.cpp" />
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="MusicPlayer.cpp" />
     <ClCompile Include="PauseState.cpp" />
@@ -144,7 +145,7 @@
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Animation.h" />
+    <ClInclude Include="Animation2.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="Category.h" />
     <ClInclude Include="Command.h" />
@@ -155,6 +156,8 @@
     <ClInclude Include="Frog.h" />
     <ClInclude Include="GameOver.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="json.hpp" />
+    <ClInclude Include="JsonFrameParser.hpp" />
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="MusicPlayer.h" />
     <ClInclude Include="PauseState.h" />

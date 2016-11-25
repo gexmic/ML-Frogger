@@ -25,9 +25,10 @@ namespace GEX
 	{
 		FrogMover(float vx, float vy) : velocity(vx, vy)
 		{}
-		void operator() (Frog& frog, sf::Time dt) const
-		{
+		void operator() (Frog& frog, sf::Time dt) const	{
+
 			sf::Vector2f tmp = frog.getPosition();
+			frog.move(velocity.x, velocity.y, dt);
 			frog.setPosition(tmp.x + velocity.x, tmp.y + velocity.y);
 		}
 		sf::Vector2f velocity;
@@ -79,14 +80,11 @@ namespace GEX
 		_actionBindings[Action::MoveUp].action			= derivedAction<Frog>(FrogMover(0.f, -40));
 		_actionBindings[Action::MoveDown].action		= derivedAction<Frog>(FrogMover(0.f, 40));
 
-
 		for (auto& pair : _actionBindings)
 		{
 			pair.second.category = Category::Frog;
-		}
-	
+		}	
 	}
-
 
 	bool PlayerControl::isRealTimeAction(Action action)
 	{
@@ -100,8 +98,5 @@ namespace GEX
 		default:
 			return false;
 		}
-	}
-	
+	}	
 }
-
-

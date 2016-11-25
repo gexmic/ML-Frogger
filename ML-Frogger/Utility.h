@@ -18,7 +18,8 @@ utility class to convert degrees to radius and radius to degrees
 #pragma once
 #include <cmath>
 #include "SFML\System\Vector2.hpp"
-#include "Animation.h"
+#include "Animation2.h"
+
 
 
 namespace sf
@@ -31,7 +32,7 @@ namespace GEX
 {
 	void centerOrigin(sf::Sprite& sprite);
 	void centerOrigin(sf::Text& text);
-	void centerOrigin(Animation& animation);
+	void centerOrigin(Animation2& animation);
 
 	// trig helper function
 
