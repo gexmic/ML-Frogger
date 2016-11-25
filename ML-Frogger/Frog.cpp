@@ -20,11 +20,9 @@ Frog class manage the direction the frog whil move, animation and the sprite of 
 
 namespace GEX
 {
-
-
 	Frog::Frog() :
-		_frogLocation(61, 1, 33, 23),
-		_liveLocation(6, 1, 18, 21),
+		_frogLocation(61, 1, 33, 23), // set the location of the frog in the sprite sheet will be move later in the table.
+		_liveLocation(6, 1, 18, 21), // set the location of the live icon in the sprite sheet will be move later in the table.
 		_sprite(TextureHolder::getInstance().get(TextureID::FroggerAtlas)),
 		_livesSprite(TextureHolder::getInstance().get(TextureID::FroggerAtlas)),
 		_lives(3)
@@ -35,6 +33,7 @@ namespace GEX
 		_livesSprite.setTextureRect(_liveLocation);
 		centerOrigin(_livesSprite);
 
+		// add to the map all the animation for the frof movement 
 		JsonFrameParser frames("../Media/Textures/FroggerAtlas.json");
 
 		_animations[State::MoveIdel] = std::unique_ptr<Animation2>(new Animation2(false));
@@ -65,6 +64,7 @@ namespace GEX
 
 	void Frog::move(float x, float y, sf::Time dt)
 	{
+		// check with the value of x and y to know with side the frog is going and set the state to it.
 		if (x == -40)
 		{
 			_directionMove = State::MoveLeft;
@@ -86,7 +86,7 @@ namespace GEX
 		{
 			_directionMove = State::MoveIdel;
 		}
-
+		// start the animation on the correct side the frog move
 		_animations[_directionMove]->start();
 		sf::Vector2f tmp = _sprite.getPosition();
 		_sprite.setPosition(tmp.x + x, tmp.y + y);
@@ -95,6 +95,7 @@ namespace GEX
 	void Frog::drawCurrent(sf::RenderTarget & target, sf::RenderStates state) const
 	{
 		target.draw(_sprite, state);
+		// draw the live the player have left in the top right conner.
 		for (int i = 0; i < _lives; ++i)
 		{
 			sf::Vector2f tmp(460.f - i * 20.f, 20.f);
@@ -109,9 +110,10 @@ namespace GEX
 
 		Entity::updateCurrent(dt, commands);
 	}
+
 	void Frog::movementUpdate(sf::Time dt)
 	{
+		// update the animation of the frog
 		_sprite.setTextureRect(_animations[_directionMove]->update(dt));
-
 	}
 }

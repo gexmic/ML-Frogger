@@ -57,7 +57,7 @@ namespace GEX
 		CommandeQueue& commands = _world.getCommandQueue();
 		_player.handleEvent(event, commands);
 
-		if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
+		/*if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
 			requestStackPush(StateID::Pause);
 
 		if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Q)
@@ -69,7 +69,7 @@ namespace GEX
 		if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::G)
 		{
 			requestStackPush(StateID::Gex);
-		}
+		}*/
 		return true;
 	}
 }
