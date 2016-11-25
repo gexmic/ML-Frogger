@@ -11,7 +11,7 @@ Additions and modifications are my sole work for prog 1266
 
 @section DESCRIPTION
 
-This is a enum for all the resource the game have, plane, backgoud, button.
+This is a enum for all the resource the game have background, frog
 
 */
 

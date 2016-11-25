@@ -10,8 +10,7 @@ These additions and modifications are my sole work for prog 1266
 
 @section DESCRIPTION
 
-The SceneNode class is the base class for any object that is to be put in the scene graph. Wich means any game
-objects including background, Non-Player-Objects (NPOs), and the player object.
+Not use Now
 */
 
 #pragma once

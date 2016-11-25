@@ -23,15 +23,13 @@ namespace GEX
 {
 	struct FrogMover
 	{
-		FrogMover(float vx, float vy) : velocity(vx, vy)
+		FrogMover(float vx, float vy) : frogHop(vx, vy)
 		{}
 		void operator() (Frog& frog, sf::Time dt) const	{
 
-			sf::Vector2f tmp = frog.getPosition();
-			frog.move(velocity.x, velocity.y, dt);
-			frog.setPosition(tmp.x + velocity.x, tmp.y + velocity.y);
+			frog.move(frogHop.x, frogHop.y, dt);
 		}
-		sf::Vector2f velocity;
+		sf::Vector2f frogHop;
 	};
 
 	PlayerControl::PlayerControl() 

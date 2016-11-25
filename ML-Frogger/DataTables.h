@@ -5,13 +5,11 @@
 
 @section LICENSE
 
-This software is based on the material accompanying the book "SFML Game Development" see License.txt
-
-Additions and modifications are my sole work for prog 1266
+This software is based on the original frogger game. Is a project for my programing class in NBCC Moncton
 
 @section DESCRIPTION
 
-this dataTable class have a table for the airplaine attributes wen a airplaine is construct it get the information on the table 
+this dataTable class have a table for the future frog attributes wen a frog is construct it get the information on the table 
 
 */
 

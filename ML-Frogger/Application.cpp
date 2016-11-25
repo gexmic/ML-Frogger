@@ -7,8 +7,6 @@
 
 This software is based on the frogger game for my project at NBCC Moncton programing course
 
-Additions and modifications are my sole work for prog 1266
-
 @section DESCRIPTION
 
 Application class will run the game loop and load the materia that is required in the
@@ -124,9 +122,10 @@ namespace GEX
 
 		if (timePassed >= sf::seconds(1.f))
 		{
-			_statsText.setString(
-				"Frame / Second = " + std::to_string(numFrames) + "\n" +
-				"Time / Update = " + std::to_string(timePassed.asMicroseconds() / numFrames) + "us");
+			_statsText.setString(""
+				//"Frame / Second = " + std::to_string(numFrames) + "\n" +
+				//"Time / Update = " + std::to_string(timePassed.asMicroseconds() / numFrames) + "us"
+				)	;
 			numFrames = 0;
 			timePassed -= sf::seconds(1.f);
 		}
@@ -138,7 +137,4 @@ namespace GEX
 		_stateStack.registerState<MenuState>			(StateID::Menu);
 		_stateStack.registerState<GameState>			(StateID::Game);
 	}
-
-
-
 }

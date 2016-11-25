@@ -11,7 +11,7 @@ Additions and modifications are my sole work for prog 1266
 
 @section DESCRIPTION
 
-This is the class of the game state. the game state is wen the player control the airplaine.
+This is the class of the game state. the game state is wen the player control the frog.
 
 */
 

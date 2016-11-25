@@ -7,8 +7,6 @@
 
 This software is based on the frogger game for my project at NBCC Moncton programing course
 
-Additions and modifications are my sole work for prog 1266
-
 @section DESCRIPTION
 
 Application class will run the game loop and load the materia that is required in the 
@@ -36,7 +34,6 @@ namespace GEX
 								Application();
 		void                    run();
 
-
 	private:
 		void                    processInput();
 		void                    update(sf::Time dt);
@@ -45,7 +42,6 @@ namespace GEX
 		void                    updateStatistics(sf::Time dt);
 		void                    registerStates();
 
-
 	private:
 		static const sf::Time   TimePerFrame;
 
@@ -53,8 +49,6 @@ namespace GEX
 		PlayerControl           _player;		
 		MusicPlayer				_music;
 		SoundPlayer				_soundPlayer;
-
-
 		StateStack              _stateStack;
 		sf::Text                _statsText;
 	};

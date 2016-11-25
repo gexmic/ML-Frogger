@@ -11,7 +11,7 @@ Additions and modifications are my sole work for prog 1266
 
 @section DESCRIPTION
 
-tthis world class is the world of the game. It will draw the backgound the airplane and enneni plane. later it will also have the drop item
+tthis world class is the world of the game. It will draw the backgound the frog.
 
 */
 
@@ -62,8 +62,6 @@ namespace GEX
 		void								adapPlayerPosition();
 		CommandeQueue&						getCommandQueue();
 		bool								hasAlivePlayer();
-		void								displayNumberOfLives();
-
 
 	private:
 		void								buildScene();
@@ -80,7 +78,7 @@ namespace GEX
 		enum Layer
 		{
 			Backgroud,
-			Air,			
+			Ground,			
 			LayerCount
 		};
 

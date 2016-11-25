@@ -11,7 +11,7 @@ Additions and modifications are my sole work for prog 1266
 
 @section DESCRIPTION
 
-The menu state is where you have the menu play or exit the game with the backgound of two airplaine.
+The menu state is where you have the menu play or exit the game with the backgound of frogger.
 
 */
 

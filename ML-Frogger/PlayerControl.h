@@ -11,8 +11,7 @@ Additions and modifications are my sole work for prog 1266
 
 @section DESCRIPTION
 
-This class is for all the command that the player could do in the game for moving the plane and navigate to the menu. Also later
-have the control for bullet and missel.
+This class is for all the command that the player could do in the game for moving the frog and navigate to the menu. Also later
 
 */
 

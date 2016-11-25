@@ -122,7 +122,7 @@ namespace GEX
 		// Put the layer nodes into the scene graph
 		for (std::size_t i = 0; i < LayerCount; ++i)
 		{
-			Category::Type category = (i == Air) ? Category::SceneAirLayer : Category::None;
+			Category::Type category = (i == Ground) ? Category::SceneGroundLayer : Category::None;
 			SceneNode::Ptr layer(new SceneNode(category));
 			_sceneLayers[i] = layer.get();
 			_sceneGraph.attachChild(std::move(layer));
@@ -141,11 +141,9 @@ namespace GEX
 		std::unique_ptr<Frog> frog(new Frog());
 		_playerFrog = frog.get();
 		_playerFrog->setPosition(_spawnPosition);
-		_sceneLayers[Air]->attachChild(std::move(frog));
+		_sceneLayers[Ground]->attachChild(std::move(frog));
 	
 	}
-
-
 
 	sf::FloatRect World::getViewBounds() const
 	{
@@ -197,7 +195,7 @@ namespace GEX
 	void World::destroyEntitieOurSideView()
 	{
 		Command command;
-		command.category = Category::Projectile | Category::EnnemyAircraft;
+	
 		command.action = derivedAction<Entity>([this](Entity& e, sf::Time)
 		{
 			if (!getBattleFieldBound().intersects(e.getBoundingRect()))

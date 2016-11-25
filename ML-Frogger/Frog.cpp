@@ -1,3 +1,18 @@
+/**
+@file
+@author  Michael Landry	mic_23@hotmail.com
+@version 1.0
+
+@section LICENSE
+
+This software is based on the original frogger game. Is a project for my programing class in NBCC Moncton
+
+@section DESCRIPTION
+
+Frog class manage the direction the frog whil move, animation and the sprite of the frog and the life left.
+
+*/
+
 #include "Frog.h"
 #include "TextureHolder.h"
 #include "Utility.h"
@@ -53,26 +68,28 @@ namespace GEX
 		if (x == -40)
 		{
 			_directionMove = State::MoveLeft;
-			_animations[_directionMove]->start();
 		}
 
 		else if (x == 40)
 		{
 			_directionMove = State::MoveRight;
-			_animations[_directionMove]->start();
 		}
 		else if (y == -40)
 		{
 			_directionMove = State::MoveUp;
-			_animations[_directionMove]->start();
 		}
 		else if (y == 40)
 		{
 			_directionMove = State::MoveDown;
-			_animations[_directionMove]->start();
 		}
 		else
+		{
 			_directionMove = State::MoveIdel;
+		}
+
+		_animations[_directionMove]->start();
+		sf::Vector2f tmp = _sprite.getPosition();
+		_sprite.setPosition(tmp.x + x, tmp.y + y);
 	}
 
 	void Frog::drawCurrent(sf::RenderTarget & target, sf::RenderStates state) const
