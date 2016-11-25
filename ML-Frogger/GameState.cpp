@@ -41,7 +41,7 @@ namespace GEX
 		//check if the game is over
 		if (!_world.hasAlivePlayer())
 		{
-			_player.setMissionStatus(MissionStatus::Fail);
+			
 			requestStackPush(StateID::GameOver);
 		}
 		

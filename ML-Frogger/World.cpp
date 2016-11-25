@@ -39,14 +39,10 @@ namespace GEX
 		_sceneLayers(),
 		_commandQueue(),
 		_worldBounds(0.f, 0.f, _worldView.getSize().x, 600),
-		_spawnPosition(_worldView.getSize().x / 2, _worldView.getSize().y - 20),
-		_numOfLives(TextureHolder::getInstance().get(TextureID::FroggerAtlas)),
-		_livePosition(6, 1, 18, 21)
+		_spawnPosition(_worldView.getSize().x / 2, _worldView.getSize().y - 20)
 	
 		
 	{
-		_numOfLives.setTextureRect(_livePosition);
-		centerOrigin(_numOfLives);
 		buildScene();
 		
 		// start the view at the bottom of the world
@@ -93,11 +89,7 @@ namespace GEX
 	{
 		_window.setView(_worldView);
 		_window.draw(_sceneGraph);
-		displayNumberOfLives();
-
-	}
-
-	
+	}	
 
 	void World::adapPlayerPosition()
 	{
@@ -122,17 +114,7 @@ namespace GEX
 		
 		/*return !_playerFrog->isMarkedForRemoval();*/
 		return true;
-	}
-
-	void World::displayNumberOfLives()
-	{
-		for (int i = 0; i < _playerFrog->getNumberOfLives(); ++i)
-		{
-			sf::Vector2f tmp(460.f - i * 20.f, 20.f);
-			_numOfLives.setPosition(tmp);
-			_window.draw(_numOfLives);
-		}
-	}
+	}	
 
 	
 	void World::buildScene()

@@ -33,6 +33,7 @@ namespace GEX
 			EnemyProjectile		= 1 << 6,
 			ParticalSystem      = 1 << 7,
 			SoundEffet			= 1 << 8,
+			Frog				= 1 << 9,
 
 			Airplaine			= PlayerAircraft | AlliedAircraft | EnnemyAircraft,
 			Projectile			= AlliedProjectile | EnemyProjectile,
