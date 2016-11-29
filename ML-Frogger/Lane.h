@@ -29,6 +29,7 @@ namespace GEX
 		float				_speedTravel;
 		sf::Sprite			_sprite;
 		sf::Vector2f		_spawnPosition;
+		int					_directionIndex;
 	};
 
 }

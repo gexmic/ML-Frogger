@@ -42,10 +42,11 @@ namespace GEX
 
 	struct  LaneData
 	{
-		TextureID		texture;
-		sf::IntRect		vehiculeLocation;
-		float			speed;
-		sf::Vector2f	spawnPosition;
+		TextureID				texture;
+		sf::IntRect				vehiculeLocation;
+		float					speed;
+		sf::Vector2f			spawnPosition;
+		std::vector<Direction>  direction;
 
 	};
 

@@ -41,6 +41,7 @@ namespace GEX
 		data[Lane::Type::RaceCar1].vehiculeLocation = sf::IntRect(139, 100, 38, 39);
 		data[Lane::Type::RaceCar1].speed = -40.f;
 		data[Lane::Type::RaceCar1].spawnPosition = sf::Vector2f(460.f, 580.f);
+		data[Lane::Type::RaceCar1].direction.push_back(Direction(40.f, 0.f));
 
 		return data;
 	}

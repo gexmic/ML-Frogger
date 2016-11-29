@@ -28,6 +28,12 @@ namespace GEX
 
 	void Lane::movementUpdate(sf::Time dt)
 	{
+		const std::vector<Direction>& directions = table.at(_type).direction;
+
+		float distanceToTravel = directions.at(_directionIndex).distance;
+		float vx = getMaxSpeed() * GEX::cos(distanceToTravel);
+		float vy = getMaxSpeed() * GEX::sin(distanceToTravel);
+		setVelocity(vx, vy);
 	}
 
 	void Lane::updateCurrent(sf::Time dt, CommandeQueue & commands)
