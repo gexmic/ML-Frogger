@@ -21,6 +21,11 @@ namespace GEX
 {
 	class Frog : public Entity
 	{
+	public:
+		enum Type
+		{
+			Frogger
+		};
 		enum State {
 			MoveIdel,
 			MoveRight,
@@ -29,7 +34,7 @@ namespace GEX
 			MoveDown
 		};
 	public:
-		Frog();
+		Frog(Type type = Type::Frogger);
 		unsigned int									getCategory() const override;
 		void											move(float x, float y, sf::Time dt);
 

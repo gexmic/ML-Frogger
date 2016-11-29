@@ -50,9 +50,7 @@ namespace GEX
 	}
 
 	void World::update(sf::Time deltaTime)
-	{
-		
-		std::cout << _playerFrog->getPosition().x << "  " << _playerFrog->getPosition().y << std::endl;
+	{		
 		//_playerAircraft->setVelocity(0.f, 0.f);
 
 		updateSound();
@@ -138,10 +136,16 @@ namespace GEX
 		background->setPosition(_worldBounds.left, _worldBounds.top );
 		_sceneLayers[Backgroud]->attachChild(std::move(background));		
 
+		// add frog to the ground layer
 		std::unique_ptr<Frog> frog(new Frog());
 		_playerFrog = frog.get();
 		_playerFrog->setPosition(_spawnPosition);
 		_sceneLayers[Ground]->attachChild(std::move(frog));
+
+		std::unique_ptr<Lane> laneOne(new Lane(Lane::Type::RaceCar1));
+		_laneOne = laneOne.get();
+		_laneOne->setPosition(460.f, 450.f);
+		_sceneLayers[Ground]->attachChild(std::move(laneOne));
 	
 	}
 
