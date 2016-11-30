@@ -33,15 +33,39 @@ namespace GEX
 		return data;
 	}
 
-	std::map<Lane::Type, LaneData> initializeLaneData()
+	std::map<Vehicule::Type, LaneData> initializeLaneData()
 	{
-		std::map<Lane::Type, LaneData> data;
+		std::map<Vehicule::Type, LaneData> data;
 
-		data[Lane::Type::RaceCar1].texture = TextureID::FroggerAtlas;
-		data[Lane::Type::RaceCar1].vehiculeLocation = sf::IntRect(139, 100, 38, 39);
-		data[Lane::Type::RaceCar1].speed = -40.f;
-		data[Lane::Type::RaceCar1].spawnPosition = sf::Vector2f(460.f, 580.f);
-		data[Lane::Type::RaceCar1].direction.push_back(Direction(40.f, 0.f));
+		data[Vehicule::Type::RaceCar1].texture				= TextureID::FroggerAtlas;
+		data[Vehicule::Type::RaceCar1].vehiculeLocation		= sf::IntRect(139, 100, 38, 39);
+		data[Vehicule::Type::RaceCar1].velocity				= sf::Vector2f(-40.f, 0.f);
+		data[Vehicule::Type::RaceCar1].spawnPosition        = sf::Vector2f(520, 540);
+		data[Vehicule::Type::RaceCar1].destroyPoint			= -20.f;
+
+		data[Vehicule::Type::Tracktor].texture				= TextureID::FroggerAtlas;
+		data[Vehicule::Type::Tracktor].vehiculeLocation		= sf::IntRect(214, 62, 33,  33);
+		data[Vehicule::Type::Tracktor].velocity				= sf::Vector2f(50.f, 0.f);
+		data[Vehicule::Type::Tracktor].spawnPosition		= sf::Vector2f(-20, 500);
+		data[Vehicule::Type::Tracktor].destroyPoint			= 520.f;
+
+		data[Vehicule::Type::Car].texture					= TextureID::FroggerAtlas;
+		data[Vehicule::Type::Car].vehiculeLocation			= sf::IntRect(1, 62, 35, 29);
+		data[Vehicule::Type::Car].velocity					= sf::Vector2f(-40.f, 0.f);
+		data[Vehicule::Type::Car].spawnPosition				= sf::Vector2f(520, 460);
+		data[Vehicule::Type::Car].destroyPoint				= -20.f;
+
+		data[Vehicule::Type::RaceCar2].texture				= TextureID::FroggerAtlas;
+		data[Vehicule::Type::RaceCar2].vehiculeLocation		= sf::IntRect(69, 100, 37, 37);
+		data[Vehicule::Type::RaceCar2].velocity				= sf::Vector2f(55.f, 0.f);
+		data[Vehicule::Type::RaceCar2].spawnPosition		= sf::Vector2f(-20, 420);
+		data[Vehicule::Type::RaceCar2].destroyPoint			= 520.f;
+
+		data[Vehicule::Type::Truck].texture					= TextureID::FroggerAtlas;
+		data[Vehicule::Type::Truck].vehiculeLocation		= sf::IntRect(293, 1, 61, 28);
+		data[Vehicule::Type::Truck].velocity				= sf::Vector2f(-40.f, 0.f);
+		data[Vehicule::Type::Truck].spawnPosition			= sf::Vector2f(520, 380);
+		data[Vehicule::Type::Truck].destroyPoint			= -40.f;
 
 		return data;
 	}

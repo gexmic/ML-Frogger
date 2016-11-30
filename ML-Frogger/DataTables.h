@@ -18,7 +18,7 @@ this dataTable class have a table for the future frog attributes wen a frog is c
 #include <map>
 #include <vector>
 #include "Frog.h"
-#include "Lane.h"
+#include "Vehicule.h"
 
 namespace GEX
 {
@@ -44,13 +44,13 @@ namespace GEX
 	{
 		TextureID				texture;
 		sf::IntRect				vehiculeLocation;
-		float					speed;
+		sf::Vector2f			velocity;
 		sf::Vector2f			spawnPosition;
-		std::vector<Direction>  direction;
+		float					destroyPoint;
 
 	};
 
 	std::map<Frog::Type, FrogData> initializeFrogData();
-	std::map<Lane::Type, LaneData> initializeLaneData();
+	std::map<Vehicule::Type, LaneData> initializeLaneData();
 
 }

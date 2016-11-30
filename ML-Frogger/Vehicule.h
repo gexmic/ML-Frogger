@@ -4,7 +4,7 @@
 namespace GEX
 {
 
-	class Lane : public Entity
+	class Vehicule : public Entity
 	{
 	public:
 		enum Type
@@ -16,20 +16,19 @@ namespace GEX
 			Tracktor
 		};
 	public:
-							Lane(Type type);
-		float				getMaxSpeed() const;
+		Vehicule(Type type);
+		~Vehicule();
+
+		void drawCurrent(sf::RenderTarget & target, sf::RenderStates state) const;
 
 	private:
-		void				drawCurrent(sf::RenderTarget& target, sf::RenderStates state) const override;
-		void				movementUpdate(sf::Time dt);
 		virtual void		updateCurrent(sf::Time dt, CommandeQueue& commands) override;
 
 	private:
 		Type				_type;
-		float				_speedTravel;
 		sf::Sprite			_sprite;
-		sf::Vector2f		_spawnPosition;
-		int					_directionIndex;
+
 	};
 
 }
+

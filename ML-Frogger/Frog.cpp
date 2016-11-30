@@ -54,6 +54,8 @@ namespace GEX
 
 	}
 
+
+
 	unsigned int Frog::getCategory() const
 	{
 		return Category::Frog;

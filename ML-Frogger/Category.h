@@ -23,8 +23,15 @@ namespace GEX
 		{
 			None = 0,			 // bit fied operator
 			SceneGroundLayer		= 1 << 0,			
-			SoundEffet			= 1 << 1,
-			Frog				= 1 << 2,
+			SoundEffet				= 1 << 1,
+			Frog					= 1 << 2,
+			Car1					= 1 << 3,
+			RaceCar1				= 1 << 4,
+			RaceCar2				= 1 << 5,
+			Truck					= 1 << 6,
+			Tractor					= 1 << 7,
+
+			Car						= Car1 | RaceCar1 | RaceCar2 | Tractor | Tractor,
 
 		};
 	}

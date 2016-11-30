@@ -27,7 +27,6 @@ tthis world class is the world of the game. It will draw the backgound the frog.
 #include "CommandeQueue.h"
 #include "SoundPlayer.h"
 #include "Frog.h"
-#include "Lane.h"
 
 
 
@@ -71,7 +70,6 @@ namespace GEX
 		sf::FloatRect						getBattleFieldBound() const;
 		
 		void								handleCollisions();
-		void								destroyEntitieOurSideView();
 		void								updateSound();
 
 
@@ -79,10 +77,6 @@ namespace GEX
 		enum Layer
 		{
 			Backgroud,
-			Lane1,
-			Lane2,
-			Lane3,
-			Lane4,
 			Ground,			
 			LayerCount
 		};
@@ -98,7 +92,6 @@ namespace GEX
 		sf::FloatRect							_worldBounds;
 		sf::Vector2f							_spawnPosition;
 		Frog*									_playerFrog;
-		Lane*									_laneOne;
 
 		
 	};

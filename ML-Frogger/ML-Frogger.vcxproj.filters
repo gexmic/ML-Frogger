@@ -99,7 +99,10 @@
     <ClCompile Include="JsonFrameParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lane.cpp">
+    <ClCompile Include="LaneNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vehicule.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -197,7 +200,10 @@
     <ClInclude Include="JsonFrameParser.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Lane.h">
+    <ClInclude Include="LaneNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vehicule.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
