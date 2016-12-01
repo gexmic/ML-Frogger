@@ -1,25 +1,26 @@
 #pragma once
 #include "SceneNode.h"
-#include "Vehicule.h"
+#include "WaterObject.h"
 
 namespace GEX
 {
-	class Vehicule;
+	class WaterObject;
 
-	class LaneNode : public SceneNode
+	class WaterLaneNode : public SceneNode
 	{
 	public:
-		LaneNode(Vehicule::Type type);
+								WaterLaneNode(WaterObject::Type type);
 		void					updateCurrent(sf::Time deltaTime, CommandeQueue& commands) override;
 
 	private:
 		void					initializeRandomTimeToSpan();
 	private:
-		sf::Vector2f			_spwanPosition;	
-		Vehicule::Type			_carType;
+		sf::Vector2f			_spwanPosition;
+		WaterObject::Type		_type;
 		float					_time;
 		int						_timeBeforSpanNewCar;
 		int						_min;
-		int						_max;		
+		int						_max;
 	};
 }
+

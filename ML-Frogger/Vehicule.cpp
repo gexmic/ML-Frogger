@@ -34,8 +34,7 @@ namespace GEX
 
 
 	void Vehicule::updateCurrent(sf::Time dt, CommandeQueue & commands)
-	{
-		
+	{		
 		if (getPosition().x <= table.at(_type).destroyPoint.x && table.at(_type).spawnPosition.x > 480)
 			destroy();
 		if (getPosition().x >= table.at(_type).destroyPoint.x && table.at(_type).spawnPosition.x < 0)

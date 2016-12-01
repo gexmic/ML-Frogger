@@ -66,7 +66,7 @@ namespace GEX
 		data[Vehicule::Type::RaceCar2].velocity				= sf::Vector2f(60.f, 0.f);
 		data[Vehicule::Type::RaceCar2].spawnPosition		= sf::Vector2f(-20, 420);
 		data[Vehicule::Type::RaceCar2].initialSpawn1		= sf::Vector2f(355.f, 420.f);
-		data[Vehicule::Type::RaceCar2].initialSpawn1		= sf::Vector2f(128.f, 420.f);
+		data[Vehicule::Type::RaceCar2].initialSpawn2		= sf::Vector2f(128.f, 420.f);
 		data[Vehicule::Type::RaceCar2].destroyPoint			= sf::Vector2f(520.f, 420);
 
 		data[Vehicule::Type::Truck].texture					= TextureID::FroggerAtlas;
@@ -74,9 +74,57 @@ namespace GEX
 		data[Vehicule::Type::Truck].velocity				= sf::Vector2f(-70.f, 0.f);
 		data[Vehicule::Type::Truck].spawnPosition			= sf::Vector2f(500.f, 380.f);
 		data[Vehicule::Type::Truck].initialSpawn1			= sf::Vector2f(290.f, 380.f);
-		data[Vehicule::Type::Truck].initialSpawn1			= sf::Vector2f(60.f, 380.f);
+		data[Vehicule::Type::Truck].initialSpawn2			= sf::Vector2f(60.f, 380.f);
 		data[Vehicule::Type::Truck].destroyPoint			= sf::Vector2f(-40.f, 380.f);
 
 		return data;
+	}
+
+	std::map<WaterObject::Type, WaterData> initializeWaterData()
+	{
+		std::map<WaterObject::Type, WaterData> data;
+
+		data[WaterObject::Type::Turtle3].texture		= TextureID::FroggerAtlas;
+		data[WaterObject::Type::Turtle3].Location		= sf::IntRect(192, 1, 99, 26);
+		data[WaterObject::Type::Turtle3].velocity		= sf::Vector2f(-30.f, 0.f);
+		data[WaterObject::Type::Turtle3].spawnPosition	= sf::Vector2f(500.f, 300.f);
+		data[WaterObject::Type::Turtle3].initialSpawn1	= sf::Vector2f(390.f, 300.f);
+		data[WaterObject::Type::Turtle3].initialSpawn2	= sf::Vector2f(100.f, 300.f);
+		data[WaterObject::Type::Turtle3].destroyPoint	= sf::Vector2f(-40.f, 300.f);
+
+		data[WaterObject::Type::Log4].texture = TextureID::FroggerAtlas;
+		data[WaterObject::Type::Log4].Location = sf::IntRect(1, 31, 195, 28);
+		data[WaterObject::Type::Log4].velocity = sf::Vector2f(45.f, 0.f);
+		data[WaterObject::Type::Log4].spawnPosition = sf::Vector2f(-100.f, 260.f);
+		data[WaterObject::Type::Log4].initialSpawn1 = sf::Vector2f(415.f, 260.f);
+		data[WaterObject::Type::Log4].initialSpawn2 = sf::Vector2f(115.f, 260.f);
+		data[WaterObject::Type::Log4].destroyPoint = sf::Vector2f(600.f, 260.f);
+
+		data[WaterObject::Type::Log3].texture = TextureID::FroggerAtlas;
+		data[WaterObject::Type::Log3].Location = sf::IntRect(198, 31, 93, 29);
+		data[WaterObject::Type::Log3].velocity = sf::Vector2f(30.f, 0.f);
+		data[WaterObject::Type::Log3].spawnPosition = sf::Vector2f(-60.f, 220.f);
+		data[WaterObject::Type::Log3].initialSpawn1 = sf::Vector2f(285.f, 220.f);
+		data[WaterObject::Type::Log3].initialSpawn2 = sf::Vector2f(65.f, 220.f);
+		data[WaterObject::Type::Log3].destroyPoint = sf::Vector2f(600.f, 220.f);
+
+		data[WaterObject::Type::Turtle2].texture = TextureID::FroggerAtlas;
+		data[WaterObject::Type::Turtle2].Location = sf::IntRect(125, 1, 65, 26);
+		data[WaterObject::Type::Turtle2].velocity = sf::Vector2f(-25.f, 0.f);
+		data[WaterObject::Type::Turtle2].spawnPosition = sf::Vector2f(500.f, 180.f);
+		data[WaterObject::Type::Turtle2].initialSpawn1 = sf::Vector2f(250.f, 180.f);
+		data[WaterObject::Type::Turtle2].initialSpawn2 = sf::Vector2f(150, 180.f);
+		data[WaterObject::Type::Turtle2].destroyPoint = sf::Vector2f(-40.f, 180.f);
+
+		data[WaterObject::Type::Log5].texture = TextureID::FroggerAtlas;
+		data[WaterObject::Type::Log5].Location = sf::IntRect(1, 31, 195, 28);
+		data[WaterObject::Type::Log5].velocity = sf::Vector2f(40.f, 0.f);
+		data[WaterObject::Type::Log5].spawnPosition = sf::Vector2f(-100.f, 140.f);
+		data[WaterObject::Type::Log5].initialSpawn1 = sf::Vector2f(382.f, 140.f);
+		data[WaterObject::Type::Log5].initialSpawn2 = sf::Vector2f(95.f, 140.f);
+		data[WaterObject::Type::Log5].destroyPoint = sf::Vector2f(600.f, 140.f);
+
+		return data;
+
 	}
 }

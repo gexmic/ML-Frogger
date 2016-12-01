@@ -29,6 +29,8 @@ world class
 #include "DataTables.h"
 #include "LaneNode.h"
 #include "Vehicule.h"
+#include "WaterLaneNode.h"
+#include "WaterObject.h"
 
 namespace GEX
 {
@@ -146,6 +148,22 @@ namespace GEX
 
 		std::unique_ptr<LaneNode> laneFive(new LaneNode(Vehicule::Type::Truck));
 		_sceneLayers[Ground]->attachChild(std::move(laneFive));
+
+		std::unique_ptr<WaterLaneNode> waterOne(new WaterLaneNode(WaterObject::Type::Turtle3));
+		_sceneLayers[Ground]->attachChild(std::move(waterOne));
+
+		std::unique_ptr<WaterLaneNode> waterTwo(new WaterLaneNode(WaterObject::Type::Log4));
+		_sceneLayers[Ground]->attachChild(std::move(waterTwo));
+
+		std::unique_ptr<WaterLaneNode> waterTrree(new WaterLaneNode(WaterObject::Type::Log3));
+		_sceneLayers[Ground]->attachChild(std::move(waterTrree));
+
+		std::unique_ptr<WaterLaneNode> waterFour(new WaterLaneNode(WaterObject::Type::Turtle2));
+		_sceneLayers[Ground]->attachChild(std::move(waterFour));
+
+		std::unique_ptr<WaterLaneNode> waterFive(new WaterLaneNode(WaterObject::Type::Log5));
+		_sceneLayers[Ground]->attachChild(std::move(waterFive));
+
 	
 	}
 
