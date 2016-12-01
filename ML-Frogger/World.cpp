@@ -71,8 +71,6 @@ namespace GEX
 
 		_sceneGraph.update(deltaTime, _commandQueue);
 		adapPlayerPosition();
-
-
 	}
 
 	
@@ -84,15 +82,15 @@ namespace GEX
 
 	void World::adapPlayerPosition()
 	{
-		/*sf::FloatRect viewBounds(_worldView.getCenter() - _worldView.getSize() / 2.f, _worldView.getSize());
-		const float borderDistance = 25.f;
+		sf::FloatRect viewBounds(_worldView.getCenter() - _worldView.getSize() / 2.f, _worldView.getSize());
+		const float borderDistance = 11.f;
 
 		sf::Vector2f position = _playerFrog->getPosition();
 		position.x = std::max(position.x, viewBounds.left + borderDistance);
 		position.x = std::min(position.x, viewBounds.left + viewBounds.width - borderDistance);
 		position.y = std::max(position.y, viewBounds.top + borderDistance);
 		position.y = std::min(position.y, viewBounds.top + viewBounds.height - borderDistance);
-		_playerFrog->setPosition(position);*/
+		_playerFrog->setPosition(position);
 	}
 
 	CommandeQueue & World::getCommandQueue()
@@ -126,13 +124,32 @@ namespace GEX
 		//add background to sceneGraph
 		std::unique_ptr<SpriteNode> background(new SpriteNode(texture, textureRect));
 		background->setPosition(_worldBounds.left, _worldBounds.top );
-		_sceneLayers[Backgroud]->attachChild(std::move(background));		
+		_sceneLayers[Backgroud]->attachChild(std::move(background));	
+
+
+		// add water object log and turtle
+		std::unique_ptr<WaterLaneNode> waterOne(new WaterLaneNode(WaterObject::Type::Turtle3));
+		_sceneLayers[Ground]->attachChild(std::move(waterOne));
+
+		std::unique_ptr<WaterLaneNode> waterTwo(new WaterLaneNode(WaterObject::Type::Log4));
+		_sceneLayers[Ground]->attachChild(std::move(waterTwo));
+
+		std::unique_ptr<WaterLaneNode> waterTrree(new WaterLaneNode(WaterObject::Type::Log3));
+		_sceneLayers[Ground]->attachChild(std::move(waterTrree));
+
+		std::unique_ptr<WaterLaneNode> waterFour(new WaterLaneNode(WaterObject::Type::Turtle2));
+		_sceneLayers[Ground]->attachChild(std::move(waterFour));
+
+		std::unique_ptr<WaterLaneNode> waterFive(new WaterLaneNode(WaterObject::Type::Log5));
+		_sceneLayers[Ground]->attachChild(std::move(waterFive));
 
 		// add frog to the ground layer
 		std::unique_ptr<Frog> frog(new Frog());
 		_playerFrog = frog.get();
 		_playerFrog->setPosition(_spawnPosition);
 		_sceneLayers[Ground]->attachChild(std::move(frog));		
+
+		// add car
 
 		std::unique_ptr<LaneNode> laneOne(new LaneNode(Vehicule::Type::RaceCar1));
 		_sceneLayers[Ground]->attachChild(std::move(laneOne));
@@ -149,20 +166,7 @@ namespace GEX
 		std::unique_ptr<LaneNode> laneFive(new LaneNode(Vehicule::Type::Truck));
 		_sceneLayers[Ground]->attachChild(std::move(laneFive));
 
-		std::unique_ptr<WaterLaneNode> waterOne(new WaterLaneNode(WaterObject::Type::Turtle3));
-		_sceneLayers[Ground]->attachChild(std::move(waterOne));
-
-		std::unique_ptr<WaterLaneNode> waterTwo(new WaterLaneNode(WaterObject::Type::Log4));
-		_sceneLayers[Ground]->attachChild(std::move(waterTwo));
-
-		std::unique_ptr<WaterLaneNode> waterTrree(new WaterLaneNode(WaterObject::Type::Log3));
-		_sceneLayers[Ground]->attachChild(std::move(waterTrree));
-
-		std::unique_ptr<WaterLaneNode> waterFour(new WaterLaneNode(WaterObject::Type::Turtle2));
-		_sceneLayers[Ground]->attachChild(std::move(waterFour));
-
-		std::unique_ptr<WaterLaneNode> waterFive(new WaterLaneNode(WaterObject::Type::Log5));
-		_sceneLayers[Ground]->attachChild(std::move(waterFive));
+		
 
 	
 	}
