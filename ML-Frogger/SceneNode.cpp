@@ -157,7 +157,7 @@ namespace GEX
 	void SceneNode::draw(sf::RenderTarget & target, sf::RenderStates state) const
 	{
 		// apply transform 
-		state.transform *= getTransform();
+		state.transform *= this->getTransform();
 
 		// draw current then children
 

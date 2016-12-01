@@ -45,7 +45,8 @@ namespace GEX
 		_sceneLayers(),
 		_commandQueue(),
 		_worldBounds(0.f, 0.f, _worldView.getSize().x, _worldView.getSize().y),
-		_spawnPosition(_worldView.getSize().x / 2, _worldView.getSize().y - 20)
+		_spawnPosition(_worldView.getSize().x / 2, _worldView.getSize().y - 20),
+		_playerFrog(NULL)
 	
 		
 	{
@@ -56,9 +57,7 @@ namespace GEX
 	}
 
 	void World::update(sf::Time deltaTime)
-	{		
-		//_playerAircraft->setVelocity(0.f, 0.f);
-
+	{	
 		updateSound();		
 
 		while (!_commandQueue.isEmpty())
@@ -83,7 +82,7 @@ namespace GEX
 	void World::adapPlayerPosition()
 	{
 		sf::FloatRect viewBounds(_worldView.getCenter() - _worldView.getSize() / 2.f, _worldView.getSize());
-		const float borderDistance = 11.f;
+		const float borderDistance = 20.f;
 
 		sf::Vector2f position = _playerFrog->getPosition();
 		position.x = std::max(position.x, viewBounds.left + borderDistance);
@@ -146,7 +145,7 @@ namespace GEX
 		// add frog to the ground layer
 		std::unique_ptr<Frog> frog(new Frog());
 		_playerFrog = frog.get();
-		_playerFrog->setPosition(_spawnPosition);
+		_playerFrog->setPosition( _spawnPosition);
 		_sceneLayers[Ground]->attachChild(std::move(frog));		
 
 		// add car

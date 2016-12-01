@@ -88,7 +88,6 @@ namespace GEX
 		std::array<SceneNode*, LayerCount>		_sceneLayers;
 		CommandeQueue							_commandQueue;
 		//SoundPlayer&							_soundPlayer;
-
 		sf::FloatRect							_worldBounds;
 		sf::Vector2f							_spawnPosition;
 		Frog*									_playerFrog;

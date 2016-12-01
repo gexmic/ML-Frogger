@@ -64,20 +64,20 @@ namespace GEX
 	void Frog::move(float x, float y, sf::Time dt)
 	{
 		// check with the value of x and y to know with side the frog is going and set the state to it.
-		if (x == -40)
+		if (x <= -40)
 		{
 			_directionMove = State::MoveLeft;
 		}
 
-		else if (x == 40)
+		else if (x >= 40)
 		{
 			_directionMove = State::MoveRight;
 		}
-		else if (y == -40)
+		else if (y <= -40)
 		{
 			_directionMove = State::MoveUp;
 		}
-		else if (y == 40)
+		else if (y >= 40)
 		{
 			_directionMove = State::MoveDown;
 		}
@@ -87,8 +87,8 @@ namespace GEX
 		}
 		// start the animation on the correct side the frog move
 		_animations[_directionMove]->start();
-		sf::Vector2f tmp = _sprite.getPosition();
-		_sprite.setPosition(tmp.x + x, tmp.y + y);
+		sf::Vector2f tmp = this->getPosition();
+		this->setPosition(tmp.x + x, tmp.y + y);
 	}
 
 	void Frog::drawCurrent(sf::RenderTarget & target, sf::RenderStates state) const
@@ -106,7 +106,6 @@ namespace GEX
 	void Frog::updateCurrent(sf::Time dt, CommandeQueue & commands)
 	{
 		movementUpdate(dt);
-
 		Entity::updateCurrent(dt, commands);
 	}
 
