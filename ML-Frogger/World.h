@@ -70,7 +70,6 @@ namespace GEX
 		sf::FloatRect						getBattleFieldBound() const;
 		
 		void								handleCollisions();
-		void								destroyEntitieOurSideView();
 		void								updateSound();
 
 

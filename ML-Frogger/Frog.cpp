@@ -17,20 +17,17 @@ Frog class manage the direction the frog whil move, animation and the sprite of 
 #include "TextureHolder.h"
 #include "Utility.h"
 #include "JsonFrameParser.hpp"
+#include "DataTables.h"
 
 namespace GEX
 {
-	Frog::Frog() :
-		_frogLocation(61, 1, 33, 23), // set the location of the frog in the sprite sheet will be move later in the table.
-		_liveLocation(6, 1, 18, 21), // set the location of the live icon in the sprite sheet will be move later in the table.
-		_sprite(TextureHolder::getInstance().get(TextureID::FroggerAtlas)),
-		_livesSprite(TextureHolder::getInstance().get(TextureID::FroggerAtlas)),
+	const std::map<Frog::Type, FrogData> table = initializeFrogData();
+	Frog::Frog(Type type) :
+		_sprite(TextureHolder::getInstance().get(table.at(type).texture), table.at(type).frogLocation),
+		_livesSprite(TextureHolder::getInstance().get(table.at(type).texture), table.at(type).liveLocation),
 		_lives(3)
 	{
-		_sprite.setTextureRect(_frogLocation);
 		centerOrigin(_sprite);
-
-		_livesSprite.setTextureRect(_liveLocation);
 		centerOrigin(_livesSprite);
 
 		// add to the map all the animation for the frof movement 
@@ -56,6 +53,8 @@ namespace GEX
 		_animations[State::MoveUp]->setDurationAsSeconds(0.40f);
 
 	}
+
+
 
 	unsigned int Frog::getCategory() const
 	{

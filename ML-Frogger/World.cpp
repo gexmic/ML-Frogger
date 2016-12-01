@@ -26,10 +26,14 @@ world class
 #include "Utility.h"
 #include "SoundPlayer.h"
 #include "SoundNode.h"
+#include "DataTables.h"
+#include "LaneNode.h"
+#include "Vehicule.h"
 
 namespace GEX
 {
 	bool matchesCategories(SceneNode::Pair& colliders, Category::Type type1, Category::Type type2);
+	const std::map<Vehicule::Type, LaneData> table = initializeLaneData();
 
 	World::World(sf::RenderWindow& window/*, SoundPlayer& soundPlayer*/ ) :
 		_window(window),
@@ -38,7 +42,7 @@ namespace GEX
 		_sceneGraph(),
 		_sceneLayers(),
 		_commandQueue(),
-		_worldBounds(0.f, 0.f, _worldView.getSize().x, 600),
+		_worldBounds(0.f, 0.f, _worldView.getSize().x, _worldView.getSize().y),
 		_spawnPosition(_worldView.getSize().x / 2, _worldView.getSize().y - 20)
 	
 		
@@ -50,15 +54,10 @@ namespace GEX
 	}
 
 	void World::update(sf::Time deltaTime)
-	{
-		
-		std::cout << _playerFrog->getPosition().x << "  " << _playerFrog->getPosition().y << std::endl;
+	{		
 		//_playerAircraft->setVelocity(0.f, 0.f);
 
-		updateSound();
-
-		
-		destroyEntitieOurSideView();
+		updateSound();		
 
 		while (!_commandQueue.isEmpty())
 		{
@@ -68,20 +67,10 @@ namespace GEX
 		handleCollisions();
 		_sceneGraph.removeWercks();
 
-		//// adjust player position
-		//sf::Vector2f position = _playerAircraft->getPosition();
-		//sf::Vector2f velocity = _playerAircraft->getVelocity();
-		//float angularVelocity = _playerAircraft->getRotation();
-
-		//if (velocity.x != 0 && velocity.y != 0)
-		//{
-		//	_playerAircraft->setVelocity(velocity / sqrtf(2.f));
-		//}
-
-		//_playerAircraft->setRotation(angularVelocity);
-		// apply movements
 		_sceneGraph.update(deltaTime, _commandQueue);
 		adapPlayerPosition();
+
+
 	}
 
 	
@@ -110,8 +99,7 @@ namespace GEX
 	}
 
 	bool World::hasAlivePlayer()
-	{	// find the bug
-		
+	{			
 		/*return !_playerFrog->isMarkedForRemoval();*/
 		return true;
 	}	
@@ -138,10 +126,26 @@ namespace GEX
 		background->setPosition(_worldBounds.left, _worldBounds.top );
 		_sceneLayers[Backgroud]->attachChild(std::move(background));		
 
+		// add frog to the ground layer
 		std::unique_ptr<Frog> frog(new Frog());
 		_playerFrog = frog.get();
 		_playerFrog->setPosition(_spawnPosition);
-		_sceneLayers[Ground]->attachChild(std::move(frog));
+		_sceneLayers[Ground]->attachChild(std::move(frog));		
+
+		std::unique_ptr<LaneNode> laneOne(new LaneNode(Vehicule::Type::RaceCar1));
+		_sceneLayers[Ground]->attachChild(std::move(laneOne));
+
+		std::unique_ptr<LaneNode> laneTwo(new LaneNode(Vehicule::Type::Tracktor));
+		_sceneLayers[Ground]->attachChild(std::move(laneTwo));
+
+		std::unique_ptr<LaneNode> laneThree(new LaneNode(Vehicule::Type::Car));
+		_sceneLayers[Ground]->attachChild(std::move(laneThree));
+
+		std::unique_ptr<LaneNode> laneFour(new LaneNode(Vehicule::Type::RaceCar2));
+		_sceneLayers[Ground]->attachChild(std::move(laneFour));
+
+		std::unique_ptr<LaneNode> laneFive(new LaneNode(Vehicule::Type::Truck));
+		_sceneLayers[Ground]->attachChild(std::move(laneFive));
 	
 	}
 
@@ -152,9 +156,8 @@ namespace GEX
 
 	sf::FloatRect World::getBattleFieldBound() const
 	{
-		sf::FloatRect bounds = getViewBounds();
-		bounds.top -= 100;
-		bounds.height += 100;
+		sf::FloatRect bounds = getViewBounds();		
+		bounds.width += 40;
 		return bounds;
 	}
 	
@@ -192,18 +195,7 @@ namespace GEX
 		
 	}
 
-	void World::destroyEntitieOurSideView()
-	{
-		Command command;
-	
-		command.action = derivedAction<Entity>([this](Entity& e, sf::Time)
-		{
-			if (!getBattleFieldBound().intersects(e.getBoundingRect()))
-				e.destroy();
-		});
-
-		_commandQueue.push(command);
-	}
+		
 
 	void World::updateSound()
 	{
