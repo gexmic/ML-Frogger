@@ -113,8 +113,7 @@ namespace GEX
 			SceneNode::Ptr layer(new SceneNode(category));
 			_sceneLayers[i] = layer.get();
 			_sceneGraph.attachChild(std::move(layer));
-		}
-		
+		}		
 
 		//prepare tiled background
 		sf::Texture& texture = TextureHolder::getInstance().get(TextureID::Background);
@@ -163,11 +162,7 @@ namespace GEX
 		_sceneLayers[Ground]->attachChild(std::move(laneFour));
 
 		std::unique_ptr<LaneNode> laneFive(new LaneNode(Vehicule::Type::Truck));
-		_sceneLayers[Ground]->attachChild(std::move(laneFive));
-
-		
-
-	
+		_sceneLayers[Ground]->attachChild(std::move(laneFive));	
 	}
 
 	sf::FloatRect World::getViewBounds() const
@@ -211,20 +206,14 @@ namespace GEX
 				playerAirplaine.damage(projectile.getHitPoint());
 				projectile.destroy();
 			}*/
-			// to do
-		
-		
-	}
-
-		
+			// to do	
+	}		
 
 	void World::updateSound()
 	{
 		/*_soundPlayer.setListenerPosition(_playerFrog->getWorldPosition());
 		_soundPlayer.removeStoppedSounds();*/
-	}
-
-	
+	}	
 
 	bool matchesCategories(SceneNode::Pair & colliders, Category::Type type1, Category::Type type2)
 	{
