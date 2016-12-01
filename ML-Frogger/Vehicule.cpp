@@ -21,7 +21,7 @@ namespace GEX
 
 	Vehicule::~Vehicule()
 	{
-		std::cout << "Car Destroyd" << std::endl;
+		std::cout << "Car Destroyd " << _type << std::endl;
 	}
 
 
@@ -35,6 +35,11 @@ namespace GEX
 
 	void Vehicule::updateCurrent(sf::Time dt, CommandeQueue & commands)
 	{
+		
+		if (getPosition().x <= table.at(_type).destroyPoint.x && table.at(_type).spawnPosition.x > 480)
+			destroy();
+		if (getPosition().x >= table.at(_type).destroyPoint.x && table.at(_type).spawnPosition.x < 0)
+			destroy();
 		Entity::updateCurrent(dt, commands);
 	}
 }

@@ -15,10 +15,8 @@ namespace GEX
 	private:
 		void					initializeRandomTimeToSpan();
 	private:
-		sf::Vector2f			_spwanPosition;		
-		int						_carToSpan;
+		sf::Vector2f			_spwanPosition;	
 		Vehicule::Type			_carType;
-		Vehicule*				_car;
 		float					_time;
 		int						_timeBeforSpanNewCar;
 		int						_min;

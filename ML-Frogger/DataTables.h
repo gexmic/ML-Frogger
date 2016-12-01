@@ -46,7 +46,9 @@ namespace GEX
 		sf::IntRect				vehiculeLocation;
 		sf::Vector2f			velocity;
 		sf::Vector2f			spawnPosition;
-		float					destroyPoint;
+		sf::Vector2f			initialSpawn1;
+		sf::Vector2f			initialSpawn2;
+		sf::Vector2f			destroyPoint;
 
 	};
 

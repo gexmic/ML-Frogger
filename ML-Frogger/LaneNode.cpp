@@ -10,44 +10,45 @@ namespace GEX
 
 	LaneNode::LaneNode(Vehicule::Type type) :
 		_carType(type),
-		_carToSpan(1),
 		_time(0)
 	{
 		srand(time(NULL));
+		std::unique_ptr<Vehicule> vehicule1(new Vehicule(_carType));
+		vehicule1->setPosition(table.at(_carType).initialSpawn1);
+		vehicule1->setVelocity(table.at(_carType).velocity);
+		attachChild(std::move(vehicule1));
+
+		std::unique_ptr<Vehicule> vehicule2(new Vehicule(_carType));
+		vehicule2->setPosition(table.at(_carType).initialSpawn2);
+		vehicule2->setVelocity(table.at(_carType).velocity);
+		attachChild(std::move(vehicule2));
+
 		initializeRandomTimeToSpan();
+
 	}
 
 	void LaneNode::updateCurrent(sf::Time deltaTime, CommandeQueue & commands)
 	{	
 		_time += deltaTime.asSeconds();
 
-		if (_time >= 5)
+		if (_time >= _timeBeforSpanNewCar)
 		{
 			std::unique_ptr<Vehicule> vehicule(new Vehicule(_carType));
-			_car = vehicule.get();
 			vehicule->setPosition(table.at(_carType).spawnPosition);
 			vehicule->setVelocity(table.at(_carType).velocity);
 			attachChild(std::move(vehicule));
-			_time == 0;
+			_time = 0;
 			initializeRandomTimeToSpan();
 		}	
 
-		if (_car != NULL)
-		{
-
-			if (_car->getPosition().x <= table.at(_carType).destroyPoint && table.at(_carType).spawnPosition.x > 480)
-				_car->destroy();
-
-			if (_car->getPosition().x >= table.at(_carType).destroyPoint && table.at(_carType).spawnPosition.x < 0)
-				_car->destroy();
-		}
+		
 	}
 
 	void LaneNode::initializeRandomTimeToSpan()
 	{
-		_timeBeforSpanNewCar = rand() % (6 + 1 - 4) + 4;
+		_timeBeforSpanNewCar = 3 +(rand() % (6 - 3 + 1));
 	}
 	
 }
-//(rand() % (max + 1 - min)) + min
+
 
