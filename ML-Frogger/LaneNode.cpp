@@ -2,6 +2,7 @@
 #include "DataTables.h"
 #include <time.h>
 #include <stdlib.h>
+#include "Vehicule.h"
 
 
 namespace GEX
@@ -35,18 +36,26 @@ namespace GEX
 		{
 			std::unique_ptr<Vehicule> vehicule(new Vehicule(_carType));
 			vehicule->setPosition(table.at(_carType).spawnPosition);
-			vehicule->setVelocity(table.at(_carType).velocity);
+			vehicule->setVelocity(table.at(_carType).velocity);	
 			attachChild(std::move(vehicule));
 			_time = 0;
 			initializeRandomTimeToSpan();
 		}	
 
 		
+		
+	}
+
+	
+
+	unsigned int LaneNode::getCategory() const
+	{
+		return Category::Track;
 	}
 
 	void LaneNode::initializeRandomTimeToSpan()
 	{
-		_timeBeforSpanNewCar = 3 +(rand() % (6 - 3 + 1));
+		_timeBeforSpanNewCar = 4 +(rand() % (7 - 4 + 1));
 	}
 	
 }

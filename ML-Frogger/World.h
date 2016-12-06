@@ -27,6 +27,7 @@ tthis world class is the world of the game. It will draw the backgound the frog.
 #include "CommandeQueue.h"
 #include "SoundPlayer.h"
 #include "Frog.h"
+#include "LaneNode.h"
 
 
 
@@ -91,6 +92,7 @@ namespace GEX
 		sf::FloatRect							_worldBounds;
 		sf::Vector2f							_spawnPosition;
 		Frog*									_playerFrog;
+		LaneNode*								_laneOne;
 
 		
 	};

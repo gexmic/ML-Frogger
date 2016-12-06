@@ -20,6 +20,7 @@ namespace GEX
 		~WaterObject();
 
 		void drawCurrent(sf::RenderTarget & target, sf::RenderStates state) const;
+		unsigned int									getCategory() const override;
 
 	private:
 		virtual void		updateCurrent(sf::Time dt, CommandeQueue& commands) override;

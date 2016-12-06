@@ -30,6 +30,8 @@ namespace GEX
 			RaceCar2				= 1 << 5,
 			Truck					= 1 << 6,
 			Tractor					= 1 << 7,
+			Track					= 1 << 8,
+			Water					= 1 << 9,
 
 			Car						= Car1 | RaceCar1 | RaceCar2 | Tractor | Tractor,
 

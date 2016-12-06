@@ -27,6 +27,11 @@ namespace GEX
 		target.draw(_sprite, state);
 	}
 
+	unsigned int WaterObject::getCategory() const
+	{
+		return Category::Water;
+	}
+
 	void WaterObject::updateCurrent(sf::Time dt, CommandeQueue & commands)
 	{
 		if (getPosition().x <= table.at(_type).destroyPoint.x && table.at(_type).spawnPosition.x > 480)

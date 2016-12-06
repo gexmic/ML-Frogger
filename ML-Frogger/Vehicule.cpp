@@ -31,6 +31,16 @@ namespace GEX
 		target.draw(_sprite, state);
 	}
 
+	sf::FloatRect Vehicule::getBoundingRect() const
+	{
+		return getWorldTransform().transformRect(_sprite.getGlobalBounds());
+	}
+
+	unsigned int Vehicule::getCategory() const
+	{
+		return Category::Track;
+	}
+
 
 
 	void Vehicule::updateCurrent(sf::Time dt, CommandeQueue & commands)

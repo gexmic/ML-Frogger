@@ -18,6 +18,7 @@ Frog class manage the direction the frog whil move, animation and the sprite of 
 #include "Utility.h"
 #include "JsonFrameParser.hpp"
 #include "DataTables.h"
+#include "LaneNode.h"
 
 namespace GEX
 {
@@ -25,7 +26,8 @@ namespace GEX
 	Frog::Frog(Type type) :
 		_sprite(TextureHolder::getInstance().get(table.at(type).texture), table.at(type).frogLocation),
 		_livesSprite(TextureHolder::getInstance().get(table.at(type).texture), table.at(type).liveLocation),
-		_lives(3)
+		_lives(3),
+		_hitByCar(false)
 	{
 		centerOrigin(_sprite);
 		centerOrigin(_livesSprite);
@@ -91,6 +93,24 @@ namespace GEX
 		this->setPosition(tmp.x + x, tmp.y + y);
 	}
 
+	sf::FloatRect Frog::getBoundingRect() const
+	{
+		return getWorldTransform().transformRect(_sprite.getGlobalBounds());
+	}
+
+	void Frog::handelColision()
+	{
+		/*Command command;
+		command.category = Category::Track;
+		command.action = derivedAction<Entity>( [this](SceneNode& e, sf::Time)
+		{
+			if (e.getBoundingRect().intersects(this->getBoundingRect()))
+				_hitByCar = true;
+		});
+
+		_commandQueue.push(command);*/
+	}
+
 	void Frog::drawCurrent(sf::RenderTarget & target, sf::RenderStates state) const
 	{
 		target.draw(_sprite, state);
@@ -105,6 +125,10 @@ namespace GEX
 
 	void Frog::updateCurrent(sf::Time dt, CommandeQueue & commands)
 	{
+		/*if (_hitByCar)
+		{
+			this->setPosition(240, 580);
+		}*/
 		movementUpdate(dt);
 		Entity::updateCurrent(dt, commands);
 	}

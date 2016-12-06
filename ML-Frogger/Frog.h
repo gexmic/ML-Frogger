@@ -37,6 +37,8 @@ namespace GEX
 		Frog(Type type = Type::Frogger);
 		unsigned int									getCategory() const override;
 		void											move(float x, float y, sf::Time dt);
+		sf::FloatRect									getBoundingRect() const override;
+		void											handelColision();
 
 	private:
 		void											drawCurrent(sf::RenderTarget& target, sf::RenderStates state) const override;
@@ -51,6 +53,8 @@ namespace GEX
 		sf::IntRect										_liveLocation;
 		int												_lives;
 		std::map<State, std::unique_ptr<Animation2>>	_animations;
+		bool											_hitByCar;
+		CommandeQueue									_commandQueue;
 	};
 }
 

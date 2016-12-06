@@ -150,6 +150,7 @@ namespace GEX
 		// add car
 
 		std::unique_ptr<LaneNode> laneOne(new LaneNode(Vehicule::Type::RaceCar1));
+		_laneOne = laneOne.get();
 		_sceneLayers[Ground]->attachChild(std::move(laneOne));
 
 		std::unique_ptr<LaneNode> laneTwo(new LaneNode(Vehicule::Type::Tracktor));
@@ -179,34 +180,40 @@ namespace GEX
 	
 	
 	void World::handleCollisions()
-	{
+	{		
+		/*sf::FloatRect tmp = _playerFrog->getBoundingRect();
+		sf::FloatRect tmp3 = _laneOne->getBoundingRect();*/
+		
+		/*if (_playerFrog->getHitPoint() > 0)
+		{
+			if (_playerFrog->getBoundingRect().intersects(_laneOne->getBoundingRect()))
+			_playerFrog->setPosition(_spawnPosition);
+		}	*/
+
 		// build a list of all pair of colloding scenenode all pair
 		std::set<SceneNode::Pair> collisionPairs;
 		_sceneGraph.checkSceneCollision(_sceneGraph, collisionPairs);
 
 		// for each collision do someting
-	/*	for (auto pair : collisionPairs)
+		for (auto pair : collisionPairs)
 		{
-			if (matchesCategories(pair, Category::PlayerAircraft, Category::EnnemyAircraft))
+			if (matchesCategories(pair, Category::Frog, Category::Track))
 			{
-				auto& player = static_cast<Airplaine&> (*pair.first);
-				auto& enemy = static_cast<Airplaine&>(*pair.second);
+				auto& player = static_cast<Frog&> (*pair.first);
+				auto& enemy = static_cast<Vehicule&>(*pair.second);
 
-				player.damage(enemy.getHitPoint());
-				enemy.destroy();
-			}*/
+				_playerFrog->setPosition(_spawnPosition);
+			}
 
-			
-
-			/*if (matchesCategories(pair, Category::PlayerAircraft, Category::EnemyProjectile))
+			if (matchesCategories(pair, Category::Frog, Category::Water))
 			{
-				auto& playerAirplaine = static_cast<Airplaine&> (*pair.first);
-				auto& projectile = static_cast<Projectile&>(*pair.second);
+				auto& player = static_cast<Frog&> (*pair.first);
+				auto& enemy = static_cast<WaterObject&>(*pair.second);
 
-				playerAirplaine.damage(projectile.getHitPoint());
-				projectile.destroy();
-			}*/
-			// to do	
+				_playerFrog->setVelocity(enemy.getVelocity());
+			}
+
+		}
 	}		
 
 	void World::updateSound()
@@ -233,5 +240,3 @@ namespace GEX
 			return false;		
 	}
 }
-
-
