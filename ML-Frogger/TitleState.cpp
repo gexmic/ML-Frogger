@@ -35,7 +35,7 @@ namespace GEX
 		_text.setFont(FontHolder::getInstance().get(FontID::Main));
 		_text.setString("Press any key to start");
 		centerOrigin(_text);
-		_text.setPosition(context.window->getView().getSize() / 2.f);
+		_text.setPosition(context.window->getView().getSize() / 2.f + sf::Vector2f(0.f, 215.f));
 		
 	}
 

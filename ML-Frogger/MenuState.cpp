@@ -39,16 +39,16 @@ namespace GEX
 
 		sf::Text playOption;
 		playOption.setFont(font);
-		playOption.setString("play");
+		playOption.setString("Play");
 		centerOrigin(playOption);
-		playOption.setPosition(context.window->getView().getSize() / 2.f);
+		playOption.setPosition((context.window->getView().getSize() / 2.f) + sf::Vector2f(0.f, 200.f));
 		_options.push_back(playOption);
 
 		sf::Text exitOption;
 		exitOption.setFont(font);
 		exitOption.setString("Exit");
 		centerOrigin(exitOption);
-		exitOption.setPosition(playOption.getPosition() + sf::Vector2f(0.f, 30.f));
+		exitOption.setPosition(playOption.getPosition() + sf::Vector2f(-5.f, 30.f));
 		_options.push_back(exitOption);
 
 		//context.music->play(MusicID::MenuTheme);
