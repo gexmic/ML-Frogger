@@ -202,18 +202,19 @@ namespace GEX
 				
 				_playerFrog->setVelocity(logOrTurtul.getVelocity());
 			}
-
-			if (!matchesCategories(pair, Category::Frog, Category::Water))
-			{
-				auto& player = static_cast<Frog&> (*pair.first);
-				auto& logOrTurtul = static_cast<WaterObject&>(*pair.second);
-
-				_playerFrog->setVelocity(0.f, 0.f);
-			}
-
-			
-
 		}
+
+		sf::Vector2f tmp = _playerFrog->getPosition();
+		if (collisionPairs.size() == 0 && _playerFrog->getPosition().y <= 300)
+		{
+			_playerFrog->setPosition(_spawnPosition);
+			_playerFrog->setVelocity(0.f, 0.f);
+		}
+		if (collisionPairs.size() == 0 && _playerFrog->getPosition().y >= 340)
+		{
+			_playerFrog->setVelocity(0.f, 0.f);
+		}
+			
 	}		
 
 	void World::updateSound()
