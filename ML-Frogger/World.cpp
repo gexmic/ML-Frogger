@@ -180,16 +180,7 @@ namespace GEX
 	
 	
 	void World::handleCollisions()
-	{		
-		/*sf::FloatRect tmp = _playerFrog->getBoundingRect();
-		sf::FloatRect tmp3 = _laneOne->getBoundingRect();*/
-		
-		/*if (_playerFrog->getHitPoint() > 0)
-		{
-			if (_playerFrog->getBoundingRect().intersects(_laneOne->getBoundingRect()))
-			_playerFrog->setPosition(_spawnPosition);
-		}	*/
-
+	{			
 		// build a list of all pair of colloding scenenode all pair
 		std::set<SceneNode::Pair> collisionPairs;
 		_sceneGraph.checkSceneCollision(_sceneGraph, collisionPairs);
@@ -200,7 +191,7 @@ namespace GEX
 			if (matchesCategories(pair, Category::Frog, Category::Track))
 			{
 				auto& player = static_cast<Frog&> (*pair.first);
-				auto& enemy = static_cast<Vehicule&>(*pair.second);
+				auto& vehicule = static_cast<Vehicule&>(*pair.second);
 
 				_playerFrog->setPosition(_spawnPosition);
 			}
@@ -208,9 +199,10 @@ namespace GEX
 			if (matchesCategories(pair, Category::Frog, Category::Water))
 			{
 				auto& player = static_cast<Frog&> (*pair.first);
-				auto& enemy = static_cast<WaterObject&>(*pair.second);
+				auto& logOrTurtul = static_cast<WaterObject&>(*pair.second);
 
-				_playerFrog->setVelocity(enemy.getVelocity());
+				_playerFrog->setPosition(_spawnPosition);
+				//_playerFrog->setVelocity(logOrTurtul.getVelocity());
 			}
 
 		}

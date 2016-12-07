@@ -44,6 +44,11 @@ namespace GEX
 
 	}
 
+	unsigned int WaterLaneNode::getCategory() const
+	{
+		return Category::Water;
+	}
+
 	void WaterLaneNode::initializeRandomTimeToSpan()
 	{
 		_timeBeforSpanNewCar = 5 + (rand() % (8 - 5 + 1));

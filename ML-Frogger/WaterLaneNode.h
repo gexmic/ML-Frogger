@@ -11,6 +11,7 @@ namespace GEX
 	public:
 								WaterLaneNode(WaterObject::Type type);
 		void					updateCurrent(sf::Time deltaTime, CommandeQueue& commands) override;
+		unsigned int									getCategory() const override;
 
 	private:
 		void					initializeRandomTimeToSpan();
