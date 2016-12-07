@@ -19,6 +19,7 @@ Frog class manage the direction the frog whil move, animation and the sprite of 
 #include "JsonFrameParser.hpp"
 #include "DataTables.h"
 #include "LaneNode.h"
+#include "FontHolder.h"
 
 namespace GEX
 {
@@ -27,7 +28,8 @@ namespace GEX
 		_sprite(TextureHolder::getInstance().get(table.at(type).texture), table.at(type).frogLocation),
 		_livesSprite(TextureHolder::getInstance().get(table.at(type).texture), table.at(type).liveLocation),
 		_lives(3),
-		_hitByCar(false)
+		_score(0),
+		_lastHigherPosition(580)
 	{
 		centerOrigin(_sprite);
 		centerOrigin(_livesSprite);
@@ -121,6 +123,7 @@ namespace GEX
 			_livesSprite.setPosition(tmp);
 			target.draw(_livesSprite);
 		}
+		target.draw(_scoreText);
 	}
 
 	void Frog::updateCurrent(sf::Time dt, CommandeQueue & commands)
@@ -130,6 +133,8 @@ namespace GEX
 			this->setPosition(240, 580);
 		}*/
 		movementUpdate(dt);
+		calculateScore();
+		updateScore();
 		Entity::updateCurrent(dt, commands);
 	}
 
@@ -138,4 +143,24 @@ namespace GEX
 		// update the animation of the frog
 		_sprite.setTextureRect(_animations[_directionMove]->update(dt));
 	}
+	void Frog::calculateScore()
+	{
+		if (_lastHigherPosition > getPosition().y)
+		{
+			_lastHigherPosition = getPosition().y;
+			_score += 20;
+		}
+			
+	}
+
+	void Frog::updateScore()
+	{
+		_scoreText.setString("score: " + std::to_string(_score));
+		_scoreText.setFont(FontHolder::getInstance().get(FontID::Main));
+		_scoreText.setCharacterSize(20);
+		centerOrigin(_scoreText);
+		_scoreText.setPosition(50.f, 20.f);
+	}
+
+
 }

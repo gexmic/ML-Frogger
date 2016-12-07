@@ -17,6 +17,7 @@ Frog class manage the direction the frog whil move, animation and the sprite of 
 #include "Entity.h"
 #include <vector>
 #include "Animation2.h"
+#include "TextNode.h"
 namespace GEX
 {
 	class Frog : public Entity
@@ -44,6 +45,9 @@ namespace GEX
 		void											drawCurrent(sf::RenderTarget& target, sf::RenderStates state) const override;
 		virtual void									updateCurrent(sf::Time dt, CommandeQueue& commands) override;
 		void											movementUpdate(sf::Time dt);
+		void											calculateScore();
+
+		void						updateScore();
 
 	private:		
 		sf::Sprite										_sprite;
@@ -53,8 +57,9 @@ namespace GEX
 		sf::IntRect										_liveLocation;
 		int												_lives;
 		std::map<State, std::unique_ptr<Animation2>>	_animations;
-		bool											_hitByCar;
-		CommandeQueue									_commandQueue;
+		int												_score;
+		int												_lastHigherPosition;
+		sf::Text 										_scoreText;
 	};
 }
 
