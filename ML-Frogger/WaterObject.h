@@ -20,6 +20,7 @@ namespace GEX
 		~WaterObject();
 
 		void drawCurrent(sf::RenderTarget & target, sf::RenderStates state) const;
+		sf::FloatRect									getBoundingRect() const override;
 		unsigned int									getCategory() const override;
 
 	private:

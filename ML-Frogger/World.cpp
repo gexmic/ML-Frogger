@@ -150,7 +150,6 @@ namespace GEX
 		// add car
 
 		std::unique_ptr<LaneNode> laneOne(new LaneNode(Vehicule::Type::RaceCar1));
-		_laneOne = laneOne.get();
 		_sceneLayers[Ground]->attachChild(std::move(laneOne));
 
 		std::unique_ptr<LaneNode> laneTwo(new LaneNode(Vehicule::Type::Tracktor));
@@ -200,10 +199,19 @@ namespace GEX
 			{
 				auto& player = static_cast<Frog&> (*pair.first);
 				auto& logOrTurtul = static_cast<WaterObject&>(*pair.second);
-
-				_playerFrog->setPosition(_spawnPosition);
-				//_playerFrog->setVelocity(logOrTurtul.getVelocity());
+				
+				_playerFrog->setVelocity(logOrTurtul.getVelocity());
 			}
+
+			if (!matchesCategories(pair, Category::Frog, Category::Water))
+			{
+				auto& player = static_cast<Frog&> (*pair.first);
+				auto& logOrTurtul = static_cast<WaterObject&>(*pair.second);
+
+				_playerFrog->setVelocity(0.f, 0.f);
+			}
+
+			
 
 		}
 	}		

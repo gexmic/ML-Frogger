@@ -27,6 +27,11 @@ namespace GEX
 		target.draw(_sprite, state);
 	}
 
+	sf::FloatRect WaterObject::getBoundingRect() const
+	{
+		return getWorldTransform().transformRect(_sprite.getGlobalBounds());;
+	}
+
 	unsigned int WaterObject::getCategory() const
 	{
 		return Category::Water;
