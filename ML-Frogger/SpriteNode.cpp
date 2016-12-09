@@ -32,4 +32,6 @@ namespace GEX
 	{
 		target.draw(_sprite, state);
 	}
+
+	
 }

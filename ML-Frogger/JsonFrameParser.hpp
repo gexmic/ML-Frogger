@@ -9,7 +9,7 @@
 #ifndef JsonFrameParser_hpp
 #define JsonFrameParser_hpp
 
-#include <SFML/system.hpp>
+#include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
 #include "json.hpp"
 #include <vector>

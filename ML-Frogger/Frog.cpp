@@ -141,7 +141,7 @@ namespace GEX
 	void Frog::movementUpdate(sf::Time dt)
 	{
 		// update the animation of the frog
-		_sprite.setTextureRect(_animations[_directionMove]->update(dt));
+		_sprite.setTextureRect(_animations.at(_directionMove)->update(dt));
 	}
 	void Frog::calculateScore()
 	{

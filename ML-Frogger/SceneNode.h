@@ -16,7 +16,7 @@ This is the scene note class it put every thing in a tree structur. When it upda
 */
 
 #pragma once
-#include "SFML\Graphics.hpp"
+#include "SFML/Graphics.hpp"
 #include <vector>
 #include <memory>
 #include "Command.h"

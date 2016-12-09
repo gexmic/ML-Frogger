@@ -16,7 +16,7 @@ This class is for all the command that the player could do in the game for movin
 */
 
 #pragma once
-#include "SFML\Graphics.hpp"
+#include "SFML/Graphics.hpp"
 #include "CommandeQueue.h"
 #include "Command.h"
 #include <map>

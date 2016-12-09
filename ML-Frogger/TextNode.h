@@ -17,7 +17,7 @@ This text node is a convinience class to have center origin function to center t
 
 #pragma once
 #include "SceneNode.h"
-#include "SFML\Graphics\Text.hpp"
+#include "SFML/Graphics/Text.hpp"
 #include <string>
 
 namespace GEX

@@ -19,7 +19,7 @@ tthis world class is the world of the game. It will draw the backgound the frog.
 #pragma once
 ///
 
-#include "SFML\Graphics.hpp"
+#include "SFML/Graphics.hpp"
 #include "SceneNode.h"
 #include <array>
 #include "CommandeQueue.h"

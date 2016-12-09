@@ -19,7 +19,7 @@ Utility class
 
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Text.hpp>
-#include "SFML\Graphics.hpp"
+#include "SFML/Graphics.hpp"
 #include <cassert>
 #include <cmath>
 #include <random>

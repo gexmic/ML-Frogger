@@ -19,8 +19,8 @@ no use for now
 #include "TextureHolder.h"
 #include "PlayerControl.h"
 
-#include <SFML\Graphics\/RectangleShape.hpp>
-#include <SFML\Graphics\View.hpp>
+#include <SFML/Graphics/RectangleShape.hpp>
+#include <SFML/Graphics/View.hpp>
 
 
 namespace GEX

@@ -17,7 +17,7 @@ Not use now
 
 #pragma once
 #include "ResourceIdentifiers.h"
-#include <SFML\Audio\Music.hpp>
+#include <SFML/Audio/Music.hpp>
 #include <map>
 #include <string>
 

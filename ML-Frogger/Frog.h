@@ -27,7 +27,7 @@ namespace GEX
 		{
 			Frogger
 		};
-		enum State {
+		enum class State {
 			MoveIdel,
 			MoveRight,
 			MoveLeft,

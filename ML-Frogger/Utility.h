@@ -17,7 +17,7 @@ utility class to convert degrees to radius and radius to degrees
 
 #pragma once
 #include <cmath>
-#include "SFML\System\Vector2.hpp"
+#include "SFML/System/Vector2.hpp"
 #include "Animation2.h"
 
 
@@ -36,12 +36,12 @@ namespace GEX
 
 	// trig helper function
 
-	const float		M_PI = 3.14159265f;
-	inline float	degreesToRadians(float degrees) { return degrees * M_PI / 180.f;}
-	inline float	radianToDegrees(float radian) { return radian * 180.f / M_PI; }
+	const float		PI = 3.14159265f;
+	inline float	degreesToRadians(float degrees) { return degrees * PI / 180.f;}
+	inline float	radianToDegrees(float radian) { return radian * 180.f / PI; }
 	inline float	sin(float degrees) { return std::sin(degreesToRadians(degrees));}
 	inline float	cos(float degrees) { return std::cos(degreesToRadians(degrees));}
-	inline float	arctan2(float opp, float adj) { return std::atan2f(opp, adj) * 180 / M_PI;}
+	inline float	arctan2(float opp, float adj) { return std::atan2(opp, adj) * 180 / PI;}
 
 	int				randomInt(int exclusiveMax);
 

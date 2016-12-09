@@ -17,7 +17,7 @@ This is the command class that will pass commande to the commandeQueue class.
 #pragma once
 #include <cassert>
 #include <functional>
-#include "SFML\System\Time.hpp"
+#include "SFML/System/Time.hpp"
 
 
 namespace GEX
