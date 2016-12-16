@@ -24,8 +24,6 @@ world class
 #include <algorithm>
 #include <iostream>
 #include "Utility.h"
-#include "SoundPlayer.h"
-#include "SoundNode.h"
 #include "DataTables.h"
 #include "LaneNode.h"
 #include "Vehicule.h"

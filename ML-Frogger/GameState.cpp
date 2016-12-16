@@ -16,7 +16,6 @@ Game state class
 */
 
 #include "GameState.h"
-#include "MusicPlayer.h"
 
 namespace GEX
 {

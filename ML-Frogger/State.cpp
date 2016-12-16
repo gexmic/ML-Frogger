@@ -16,20 +16,15 @@ Manage witch state the game is in.
 
 #include "State.h"
 #include "StateStack.h"
-#include "MusicPlayer.h"
-#include "SoundPlayer.h"
 
 
 
 namespace GEX
 {
 
-	State::Context::Context(sf::RenderWindow& window, PlayerControl& player,
-							MusicPlayer& music /*SoundPlayer& soundEffects*/) :
+	State::Context::Context(sf::RenderWindow& window, PlayerControl& player) :
 		window(&window),
-		player(&player),
-		music(&music)
-		//soundEffects(&soundEffects)
+		player(&player)
 	{}
 
 

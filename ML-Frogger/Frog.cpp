@@ -34,7 +34,7 @@ namespace GEX
 		centerOrigin(_sprite);
 		centerOrigin(_livesSprite);
 
-		// add to the map all the animation for the frof movement 
+		// add to the map all the animation for the frog movement 
 		JsonFrameParser frames("../Media/Textures/FroggerAtlas.json");
 
 		_animations[State::MoveIdel] = std::unique_ptr<Animation2>(new Animation2(false));
@@ -100,18 +100,7 @@ namespace GEX
 		return getWorldTransform().transformRect(_sprite.getGlobalBounds());
 	}
 
-	void Frog::handelColision()
-	{
-		/*Command command;
-		command.category = Category::Track;
-		command.action = derivedAction<Entity>( [this](SceneNode& e, sf::Time)
-		{
-			if (e.getBoundingRect().intersects(this->getBoundingRect()))
-				_hitByCar = true;
-		});
-
-		_commandQueue.push(command);*/
-	}
+	
 
 	void Frog::drawCurrent(sf::RenderTarget & target, sf::RenderStates state) const
 	{
@@ -127,11 +116,7 @@ namespace GEX
 	}
 
 	void Frog::updateCurrent(sf::Time dt, CommandeQueue & commands)
-	{
-		/*if (_hitByCar)
-		{
-			this->setPosition(240, 580);
-		}*/
+	{		
 		movementUpdate(dt);
 		calculateScore();
 		updateScore();
@@ -149,8 +134,7 @@ namespace GEX
 		{
 			_lastHigherPosition = getPosition().y;
 			_score += 20;
-		}
-			
+		}			
 	}
 
 	void Frog::updateScore()
@@ -161,6 +145,4 @@ namespace GEX
 		centerOrigin(_scoreText);
 		_scoreText.setPosition(50.f, 20.f);
 	}
-
-
 }

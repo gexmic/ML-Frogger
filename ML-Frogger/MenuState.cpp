@@ -21,7 +21,6 @@ The menu state is where you have the menu play or exit the game with the backgou
 #include "SFML/Graphics/RenderWindow.hpp"
 #include "SFML/Graphics/View.hpp"
 #include "Utility.h"
-#include "MusicPlayer.h"
 
 
 

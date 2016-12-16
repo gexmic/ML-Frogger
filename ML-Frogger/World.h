@@ -25,7 +25,6 @@ tthis world class is the world of the game. It will draw the backgound the frog.
 #include "CommandeQueue.h"
 #include <vector>
 #include "CommandeQueue.h"
-#include "SoundPlayer.h"
 #include "Frog.h"
 #include "LaneNode.h"
 

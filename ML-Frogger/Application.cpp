@@ -22,11 +22,10 @@ begining of the game.
 #include "TitleState.h"
 #include "GameState.h"
 #include "MenuState.h"
-#include "PauseState.h"
 #include "FontHolder.h"
 #include "TitleState.h"
 
-#include "GameOver.h"
+
 
 
 namespace GEX
@@ -37,7 +36,7 @@ namespace GEX
 	Application::Application() :
 		_window(sf::VideoMode(480, 600), "States", sf::Style::Close),
 		_player(),
-		_stateStack(State::Context(_window, _player, _music /*_soundPlayer*/)),
+		_stateStack(State::Context(_window, _player)),
 		_statsText()
 	{
 		_window.setKeyRepeatEnabled(false);
@@ -46,7 +45,7 @@ namespace GEX
 		TextureHolder::getInstance().load(TextureID::TitleScreen,	"../Media/Textures/FroggerTitle.png");
 		TextureHolder::getInstance().load(TextureID::MenuScreen,	"../Media/Textures/FroggerTitle.png");
 		TextureHolder::getInstance().load(TextureID::Background,    "../Media/Textures/background.png");
-		TextureHolder::getInstance().load(TextureID::FroggerAtlas,        "../Media/Textures/FroggerAtlas.png");
+		TextureHolder::getInstance().load(TextureID::FroggerAtlas,  "../Media/Textures/FroggerAtlas.png");
 		
 
 		_statsText.setFont(FontHolder::getInstance().get(FontID::Main));

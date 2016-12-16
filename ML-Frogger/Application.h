@@ -22,8 +22,6 @@ begining of the game.
 #include "SFML/Graphics/RenderWindow.hpp"
 #include "SFML/Graphics/Text.hpp"
 #include "CommandeQueue.h"
-#include "MusicPlayer.h"
-#include "SoundPlayer.h"
 
 namespace GEX
 {
@@ -46,9 +44,7 @@ namespace GEX
 		static const sf::Time   TimePerFrame;
 
 		sf::RenderWindow        _window;
-		PlayerControl           _player;		
-		MusicPlayer				_music;
-		SoundPlayer				_soundPlayer;
+		PlayerControl           _player;	
 		StateStack              _stateStack;
 		sf::Text                _statsText;
 	};

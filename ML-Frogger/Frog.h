@@ -35,11 +35,10 @@ namespace GEX
 			MoveDown
 		};
 	public:
-		Frog(Type type = Type::Frogger);
+														Frog(Type type = Type::Frogger);
 		unsigned int									getCategory() const override;
 		void											move(float x, float y, sf::Time dt);
 		sf::FloatRect									getBoundingRect() const override;
-		void											handelColision();
 
 	private:
 		void											drawCurrent(sf::RenderTarget& target, sf::RenderStates state) const override;
@@ -47,7 +46,7 @@ namespace GEX
 		void											movementUpdate(sf::Time dt);
 		void											calculateScore();
 
-		void						updateScore();
+		void											updateScore();
 
 	private:		
 		sf::Sprite										_sprite;

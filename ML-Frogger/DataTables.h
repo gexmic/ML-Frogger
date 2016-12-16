@@ -9,7 +9,8 @@ This software is based on the original frogger game. Is a project for my program
 
 @section DESCRIPTION
 
-this dataTable class have a table for the future frog attributes wen a frog is construct it get the information on the table 
+this dataTable class have a table for the frog attributes wen a frog is construct it get the information on the table 
+The information for the car and the water object it also there
 
 */
 
