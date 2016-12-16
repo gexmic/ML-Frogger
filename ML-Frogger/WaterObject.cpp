@@ -1,3 +1,18 @@
+/**
+@file
+@author  Michael Landry	mic_23@hotmail.com
+@version 1.0
+
+@section LICENSE
+
+This software is based on the original frogger game. Is a project for my programing class in NBCC Moncton
+
+@section DESCRIPTION
+
+create the water object depend of the type
+
+*/
+
 #include "WaterObject.h"
 #include "DataTables.h"
 #include "TextureHolder.h"
@@ -39,6 +54,8 @@ namespace GEX
 
 	void WaterObject::updateCurrent(sf::Time dt, CommandeQueue & commands)
 	{
+
+		// check if the object is outside the view of the game and if yes destroy
 		if (getPosition().x <= table.at(_type).destroyPoint.x && table.at(_type).spawnPosition.x > 480)
 			destroy();
 		if (getPosition().x >= table.at(_type).destroyPoint.x && table.at(_type).spawnPosition.x < 0)

@@ -1,3 +1,18 @@
+/**
+@file
+@author  Michael Landry	mic_23@hotmail.com
+@version 1.0
+
+@section LICENSE
+
+This software is based on the original frogger game. Is a project for my programing class in NBCC Moncton
+
+@section DESCRIPTION
+
+create the vehicul to be spwan in the lane node
+
+*/
+
 #include "Vehicule.h"
 #include "TextureHolder.h"
 #include "DataTables.h"
@@ -21,6 +36,7 @@ namespace GEX
 
 	Vehicule::~Vehicule()
 	{
+		// for debug see in the consol if the car are destroyd
 		std::cout << "Car Destroyd " << _type << std::endl;
 	}
 
@@ -45,6 +61,7 @@ namespace GEX
 
 	void Vehicule::updateCurrent(sf::Time dt, CommandeQueue & commands)
 	{		
+		// check if the vehicule are outside the view and if yes destroy then
 		if (getPosition().x <= table.at(_type).destroyPoint.x && table.at(_type).spawnPosition.x > 480)
 			destroy();
 		if (getPosition().x >= table.at(_type).destroyPoint.x && table.at(_type).spawnPosition.x < 0)

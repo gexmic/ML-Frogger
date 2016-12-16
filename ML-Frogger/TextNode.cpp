@@ -5,9 +5,7 @@
 
 @section LICENSE
 
-This software is based on the material accompanying the book "SFML Game Development" see License.txt
-
-Additions and modifications are my sole work for prog 1266
+This software is based on the original frogger game. Is a project for my programing class in NBCC Moncton
 
 @section DESCRIPTION
 

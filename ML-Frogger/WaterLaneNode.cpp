@@ -1,3 +1,18 @@
+/**
+@file
+@author  Michael Landry	mic_23@hotmail.com
+@version 1.0
+
+@section LICENSE
+
+This software is based on the original frogger game. Is a project for my programing class in NBCC Moncton
+
+@section DESCRIPTION
+
+manage the creation of water object
+
+*/
+
 #include "WaterLaneNode.h"
 #include "DataTables.h"
 #include <time.h>
@@ -12,6 +27,8 @@ namespace GEX
 		_type(type),
 		_time(0)
 	{
+
+		// create two water object for the begening of the game
 		srand(time(NULL));
 		std::unique_ptr<WaterObject> waterObj1(new WaterObject(_type));
 		waterObj1->setPosition(table.at(_type).initialSpawn1);
@@ -31,6 +48,7 @@ namespace GEX
 	{
 		_time += deltaTime.asSeconds();
 
+		// check if the time is greater that the time between the creation of anoter water object
 		if (_time >= _timeBeforSpanNewCar)
 		{
 			std::unique_ptr<WaterObject> waterObj(new WaterObject(_type));
@@ -51,6 +69,7 @@ namespace GEX
 
 	void WaterLaneNode::initializeRandomTimeToSpan()
 	{
+		// ramdom number to be assigne to the time befor create anoter water object
 		_timeBeforSpanNewCar = 5 + (rand() % (8 - 5 + 1));
 	}
 
